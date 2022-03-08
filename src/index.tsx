@@ -3,10 +3,27 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ReactLocationDevtools } from '@tanstack/react-location-devtools';
+import {
+  Link,
+  MakeGenerics,
+  Outlet,
+  ReactLocation,
+  Router,
+  useMatch,
+} from "@tanstack/react-location";
+
+const location = new ReactLocation();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router
+      location={location}
+      routes={[]}
+    >
+      <App />
+      <ReactLocationDevtools initialIsOpen={false} />
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
