@@ -6,3 +6,4 @@ export { default as YoutubeStats } from "./YoutubeStats";
 export { default as StreamStats } from "./StreamStats";
 export { default as SocialMedia } from "./SocialMedia";
 export { default as Search } from "./Search";
+export { default as ArtistHome } from "./ArtistHome";

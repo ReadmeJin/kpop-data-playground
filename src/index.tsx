@@ -5,13 +5,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ReactLocationDevtools } from '@tanstack/react-location-devtools';
 import {
-  Link,
-  MakeGenerics,
-  Outlet,
   ReactLocation,
   Router,
-  useMatch,
 } from "@tanstack/react-location";
+import { routes } from './routes';
 
 const location = new ReactLocation();
 
@@ -19,7 +16,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Router
       location={location}
-      routes={[]}
+      routes={routes}
     >
       <App />
       <ReactLocationDevtools initialIsOpen={false} />

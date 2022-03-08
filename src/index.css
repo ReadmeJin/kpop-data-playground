@@ -6,4 +6,22 @@
     body {
         font-family: "Noto Serif Display", serif;
     }
+
+    .oval-decoration::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        width: 70px;
+        height: 70px;
+        border-radius: 100%;
+        border-style: solid;
+        border-width: 1px;
+        border-color: currentColor;
+        transform: skewX(-45deg);
+        transform-origin: center;
+        z-index: -1;
+    }
+    .logo.oval-decoration::before{
+        transform: skewX(-45deg) translateY(-40%) translateX(-13%);
+    }
 }
