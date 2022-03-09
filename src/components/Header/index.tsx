@@ -2,10 +2,31 @@ import React from 'react'
 import { Link } from '@tanstack/react-location'
 import { IoIosStar } from 'react-icons/io'
 import { IoSearchOutline } from 'react-icons/io5'
+import { AnimatePresence, motion, Variants } from 'framer-motion'
+import { useArtist } from '../../providers/ArtistProvider'
+
 
 export default function Header() {
+  const { artist } = useArtist();
+
+  // Framer Motion variant object, for controlling animation
+  const item: Variants = {
+    initial: {
+      y: 200,
+      transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 1.2 }
+    },
+    animate: {
+      y: 0,
+      transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 1.2 }
+    },
+    exit: {
+      y: 200,
+      transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 1.2 }
+    }
+  };
+  
   return (
-    <header className="h-full p-8">
+    <header className="relative h-full px-8 py-10">
       <div className="flex flex-nowrap items-center">
         <div className="flex-none">
           <Link to="/" className="relative logo oval-decoration">
@@ -14,8 +35,31 @@ export default function Header() {
             </span>
           </Link>
         </div>
-        <div className="flex-auto">
-
+        <div className="flex-auto flex items-center justify-center h-[43px]">
+          <h2 className="absolute left-[50%] -translate-x-1/2 text-2xl uppercase overflow-hidden h-[inherit] w-full pointer-events-none">
+            <AnimatePresence>
+              {!!artist && <motion.span
+                key={artist}
+                initial={{
+                  y: 200,
+                  opacity: 0,
+                }}
+                animate= {{
+                  y: 0,
+                  opacity: 1,
+                  transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.5 }
+                }}
+                exit= {{
+                  y: 200,
+                  opacity: 1,
+                  transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.5}
+                }}
+                className="block"
+                >
+                  {artist}
+                </motion.span>}
+            </AnimatePresence>
+          </h2>
         </div>
         <div className="flex-none">
           <Link

@@ -1,9 +1,11 @@
+import { useMatch } from '@tanstack/react-location';
 import React from 'react';
 
 export default function Profile() {
-    return (
-        <div>
 
+    return (
+        <div className="p-20">
+            Profile
         </div>
     )
 }
