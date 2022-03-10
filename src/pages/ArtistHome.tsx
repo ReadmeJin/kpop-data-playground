@@ -26,9 +26,9 @@ export default function ArtistHome() {
 
   return (
     <Fragment>
-      <div className="border-y-[0.5px] border-cream">
-        <nav className="mx-44 overflow-x-auto border-x-[0.5px] border-cream">
-          <ul className="flex divide-x-[0.5px] divide-cream">
+      <div className="border-y-[0.5px] dark:border-cream border-black">
+        <nav className="mx-44 overflow-x-auto border-x-[0.5px] dark:border-cream border-black">
+          <ul className="flex divide-x-[0.5px] dark:divide-cream divide-black">
             {navOptions.map((navItem) => <NavItem key={`nav-${navItem.link}`} item={navItem} />)}
           </ul>
         </nav>
