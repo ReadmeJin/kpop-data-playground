@@ -20,8 +20,27 @@
         transform: skewX(-45deg);
         transform-origin: center;
         z-index: -1;
+        aspect-ratio: 1/1;
     }
     .logo.oval-decoration::before{
         transform: skewX(-45deg) translateY(-40%) translateX(-13%);
     }
+    .home-content.oval-decoration::before{
+        transform: skewX(-51deg) translateY(-40%) translateX(-50%) scale(0.4);
+        width: 100%;
+        height: auto;
+        border-width: 2px;
+    }
 }
+
+@layer utilities {
+    .writing-lr{
+        writing-mode: vertical-lr;
+    }
+    .writing-rl{
+        writing-mode: vertical-rl;
+    }
+    .orientation-mixed {
+      text-orientation: mixed;
+    }
+  }

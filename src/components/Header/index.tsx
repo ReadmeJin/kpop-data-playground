@@ -4,6 +4,7 @@ import { IoIosStar } from 'react-icons/io'
 import { IoSearchOutline } from 'react-icons/io5'
 import { AnimatePresence, motion, Variants } from 'framer-motion'
 import { useArtist } from '../../providers/ArtistProvider'
+import AnimatedText from '../AnimatedText'
 
 
 export default function Header() {
@@ -25,6 +26,21 @@ export default function Header() {
     }
   };
   
+  const container: Variants = {
+    visible: {
+        transition: {
+            staggerChildren: 0.05,
+            duration: 1
+        }
+    },
+    hidden: {
+      transition: {
+          staggerChildren: 0.05,
+          duration: 1
+      }
+  }
+};
+
   return (
     <header className="relative h-full px-8 py-10">
       <div className="flex flex-nowrap items-center">
@@ -35,28 +51,18 @@ export default function Header() {
             </span>
           </Link>
         </div>
-        <div className="flex-auto flex items-center justify-center h-[43px]">
+        <div className="flex-auto flex items-center justify-center h-14">
           <h2 className="absolute left-[50%] -translate-x-1/2 text-2xl uppercase overflow-hidden h-[inherit] w-full pointer-events-none">
             <AnimatePresence>
               {!!artist && <motion.span
                 key={artist}
-                initial={{
-                  y: 200,
-                  opacity: 0,
-                }}
-                animate= {{
-                  y: 0,
-                  opacity: 1,
-                  transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.5 }
-                }}
-                exit= {{
-                  y: 200,
-                  opacity: 1,
-                  transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.5}
-                }}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
                 className="block"
+                variants={container}
                 >
-                  {artist}
+                  <AnimatedText type="heading2" text={artist}/>
                 </motion.span>}
             </AnimatePresence>
           </h2>
