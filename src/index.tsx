@@ -9,18 +9,22 @@ import {
   Router,
 } from "@tanstack/react-location";
 import { routes } from './routes';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 const location = new ReactLocation();
+const queryClient = new QueryClient()
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router
-      location={location}
-      routes={routes}
-    >
-      <App />
-      <ReactLocationDevtools initialIsOpen={false} />
-    </Router>
+     <QueryClientProvider client={queryClient}>
+      <Router
+        location={location}
+        routes={routes}
+      >
+        <App />
+        <ReactLocationDevtools initialIsOpen={false} />
+      </Router>
+    </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
