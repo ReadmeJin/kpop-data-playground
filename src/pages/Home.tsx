@@ -97,7 +97,7 @@ const GroupCover = ({src, alt, className, side, children}: GroupCoverProps) => {
         }
     };
     return (
-        <motion.figcaption 
+        <motion.figure 
             className={classnames(
                 `uppercase text-2xl flex items-center relative cursor-pointer`, 
                 className,
@@ -116,7 +116,7 @@ const GroupCover = ({src, alt, className, side, children}: GroupCoverProps) => {
                 className="rounded-md max-w-[300px] aspect-video object-cover"
                 whileHover={{scale: 1.05}}
             />
-            <caption 
+            <figcaption 
                 className={classnames(
                     'absolute',
                     {
@@ -124,7 +124,9 @@ const GroupCover = ({src, alt, className, side, children}: GroupCoverProps) => {
                     'writing-lr orientation-mixed rotate-180 -left-[75px]': side === "left",
                     }
                 )}
-            >{children}</caption>
-        </motion.figcaption>
+            >
+                {children}
+            </figcaption>
+        </motion.figure>
     )
 }
