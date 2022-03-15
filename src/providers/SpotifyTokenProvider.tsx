@@ -30,12 +30,14 @@ const spotifyApi = new SpotifyWebApi();
 export default function SpotifyTokenProvider(props: { children: React.ReactNode }) {
   const initialState: SpotifyAuthResponse = {};
   const [spotifyToken, setSpotifyToken] = useSessionStorage("spotifyToken", initialState);
-  const { data, isRefetching } = useQuery("spotifyToken", fetchSpotifyAccessToken, { 
+  const { data, isRefetching, isError } = useQuery("spotifyToken", fetchSpotifyAccessToken, { 
     enabled: !spotifyToken.access_token,
-    refetchInterval: spotifyToken.expires_in,
-    refetchIntervalInBackground: true
   })
 
+  useEffect(() => {
+    if(isError) setSpotifyToken(initialState);
+  }, [isError])
+  
   useEffect(() => {
     if(data?.access_token && !spotifyToken?.access_token){
       setSpotifyToken(data)
