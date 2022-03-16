@@ -5,7 +5,6 @@ import BlackPinkCover from '../assets/blackpink-cover.webp';
 import BTSCover from '../assets/bts-cover.webp';
 import classnames from 'classnames';
 import AnimatedText from '../components/AnimatedText';
-import { Link } from '@tanstack/react-location';
 
 export default function Home() {
     const { setArtist } = useArtist();
