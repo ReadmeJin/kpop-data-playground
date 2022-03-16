@@ -1,5 +1,5 @@
-import { Link, Outlet, useNavigate } from '@tanstack/react-location'
-import React, { Fragment, useEffect, useMemo } from 'react'
+import React, { Fragment, useEffect, useMemo } from 'react';
+import { Link, useNavigate } from '@tanstack/react-location';
 import useSessionStorage from '../hooks/useSessionStorage';
 
 interface NavItemProps {
@@ -13,7 +13,7 @@ export default function ArtistHome() {
   const navigate = useNavigate();
   
   useEffect(() => {
-    if(artistId === "/") navigate({to: "/list"});
+    if(artistId === "/") navigate({to: "/artists"});
   }, [artistId, navigate])
 
   const navOptions = useMemo(() => ([
@@ -33,7 +33,6 @@ export default function ArtistHome() {
           </ul>
         </nav>
       </div>
-      <Outlet />
     </Fragment>
   )
 }

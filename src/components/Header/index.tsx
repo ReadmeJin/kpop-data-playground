@@ -69,7 +69,7 @@ export default function Header() {
         </div>
         <div className="flex-none">
           <Link
-            to="list"
+            to="artists"
             className="text-2xl inline-flex"
           >
             <IoSearchOutline title="Search"/>

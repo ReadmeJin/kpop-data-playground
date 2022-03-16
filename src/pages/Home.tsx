@@ -35,15 +35,13 @@ export default function Home() {
     return (
         <div className="px-8 py-16 flex h-[calc(100vh-155px)]">
             <section className="flex flex-col place-content-start">
-                <Link to="/artist/bts" onClick={() => setArtist("bts")}>
-                    <GroupCover
-                        src={BTSCover}
-                        alt="BTS group"
-                        side="left"
-                    >
-                        BTS
-                    </GroupCover>
-                </Link>
+                <GroupCover
+                    src={BTSCover}
+                    alt="BTS group"
+                    side="left"
+                >
+                    BTS
+                </GroupCover>
             </section>
             <section className="flex-1 flex flex-col place-content-center">
                 <motion.div 
@@ -60,15 +58,13 @@ export default function Home() {
                 </motion.div>
             </section>
             <section className="flex flex-col place-content-end">
-                <Link to="artist/blackpink" onClick={() => setArtist("blackpink")}>
-                    <GroupCover
-                        src={BlackPinkCover}
-                        alt="Blackpink group"
-                        side="right"
-                    >
-                        Blackpink
-                    </GroupCover>
-                </Link>
+                <GroupCover
+                    src={BlackPinkCover}
+                    alt="Blackpink group"
+                    side="right"
+                >
+                    Blackpink
+                </GroupCover>
             </section>
         </div>
     )

@@ -128,7 +128,7 @@ export const ArtistList = ({ data, setArtist, searchQuery }: ArtistListProps) =>
                                         delay: 0.4
                                     }}
                                 >
-                                    <Link to={`/artist/${normalizeArtistName(artist.name)}`} onClick={() => setArtist(artist.name)}>
+                                    <Link to={`/artist/${normalizeArtistName(artist.name)}/${artist.id}`} onClick={() => setArtist(artist.name)}>
                                         {artist.name}
                                     </Link>
                                 </motion.li>
