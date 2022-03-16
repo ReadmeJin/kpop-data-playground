@@ -34,16 +34,14 @@ export default function Home() {
 
     return (
         <div className="px-8 py-16 flex h-[calc(100vh-155px)]">
-            <section className="flex flex-col place-content-start">
-                <Link to="/artist/bts" onClick={() => setArtist("bts")}>
-                    <GroupCover
-                        src={BTSCover}
-                        alt="BTS group"
-                        side="left"
-                    >
-                        BTS
-                    </GroupCover>
-                </Link>
+            <section className="flex flex-col place-content-center">
+                <GroupCover
+                    src={BTSCover}
+                    alt="BTS group"
+                    side="left"
+                >
+                    BTS
+                </GroupCover>
             </section>
             <section className="flex-1 flex flex-col place-content-center">
                 <motion.div 
@@ -59,16 +57,14 @@ export default function Home() {
                     </div>
                 </motion.div>
             </section>
-            <section className="flex flex-col place-content-end">
-                <Link to="artist/blackpink" onClick={() => setArtist("blackpink")}>
-                    <GroupCover
-                        src={BlackPinkCover}
-                        alt="Blackpink group"
-                        side="right"
-                    >
-                        Blackpink
-                    </GroupCover>
-                </Link>
+            <section className="flex flex-col place-content-center">
+                <GroupCover
+                    src={BlackPinkCover}
+                    alt="Blackpink group"
+                    side="right"
+                >
+                    Blackpink
+                </GroupCover>
             </section>
         </div>
     )
@@ -99,7 +95,7 @@ const GroupCover = ({src, alt, className, side, children}: GroupCoverProps) => {
     return (
         <motion.figure 
             className={classnames(
-                `uppercase text-2xl flex items-center relative cursor-pointer`, 
+                `uppercase text-2xl flex items-center relative`, 
                 className,
                 {
                     'flex-row-reverse ml-16': side === "left",
