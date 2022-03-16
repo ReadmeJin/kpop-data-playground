@@ -34,7 +34,7 @@ export default function Home() {
 
     return (
         <div className="px-8 py-16 flex h-[calc(100vh-155px)]">
-            <section className="flex flex-col place-content-start">
+            <section className="flex flex-col place-content-center">
                 <GroupCover
                     src={BTSCover}
                     alt="BTS group"
@@ -57,7 +57,7 @@ export default function Home() {
                     </div>
                 </motion.div>
             </section>
-            <section className="flex flex-col place-content-end">
+            <section className="flex flex-col place-content-center">
                 <GroupCover
                     src={BlackPinkCover}
                     alt="Blackpink group"
@@ -93,9 +93,9 @@ const GroupCover = ({src, alt, className, side, children}: GroupCoverProps) => {
         }
     };
     return (
-        <motion.figcaption 
+        <motion.figure 
             className={classnames(
-                `uppercase text-2xl flex items-center relative cursor-pointer`, 
+                `uppercase text-2xl flex items-center relative`, 
                 className,
                 {
                     'flex-row-reverse ml-16': side === "left",
@@ -112,7 +112,7 @@ const GroupCover = ({src, alt, className, side, children}: GroupCoverProps) => {
                 className="rounded-md max-w-[300px] aspect-video object-cover"
                 whileHover={{scale: 1.05}}
             />
-            <caption 
+            <figcaption 
                 className={classnames(
                     'absolute',
                     {
@@ -120,7 +120,9 @@ const GroupCover = ({src, alt, className, side, children}: GroupCoverProps) => {
                     'writing-lr orientation-mixed rotate-180 -left-[75px]': side === "left",
                     }
                 )}
-            >{children}</caption>
-        </motion.figcaption>
+            >
+                {children}
+            </figcaption>
+        </motion.figure>
     )
 }
