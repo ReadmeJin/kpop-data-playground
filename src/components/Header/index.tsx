@@ -42,7 +42,7 @@ export default function Header() {
 };
 
   return (
-    <header className="relative h-full px-8 py-10">
+    <header className="fixed top-0 left-0 w-full px-8 py-10">
       <div className="flex flex-nowrap items-center">
         <div className="flex-none">
           <Link to="/" className="relative logo oval-decoration">
@@ -53,7 +53,7 @@ export default function Header() {
         </div>
         <div className="flex-auto flex items-center justify-center h-14">
           <h2 className="absolute left-[50%] -translate-x-1/2 text-2xl uppercase overflow-hidden h-[inherit] w-full pointer-events-none">
-            <AnimatePresence>
+           {/*  <AnimatePresence>
               {!!artist && <motion.span
                 key={artist}
                 initial="hidden"
@@ -64,7 +64,7 @@ export default function Header() {
                 >
                   <AnimatedText type="heading2" text={artist}/>
                 </motion.span>}
-            </AnimatePresence>
+            </AnimatePresence> */}
           </h2>
         </div>
         <div className="flex-none">

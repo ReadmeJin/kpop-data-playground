@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { forwardRef, LegacyRef } from 'react'
 
-export default function YoutubeStats() {
+interface YoutubeStatsProps {
+}
+export const YoutubeStats = forwardRef((props, ref: LegacyRef<HTMLDivElement>) => {
     return (
-        <div className="p-20">
+        <div ref={ref} id="youtube-counts-section" className="p-20 h-screen bg-white">
             Youtube
         </div>
     )
-}
+})
+
+export default YoutubeStats;

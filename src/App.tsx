@@ -4,6 +4,10 @@ import { Outlet } from '@tanstack/react-location';
 import Header from './components/Header';
 import ArtistProvider from './providers/ArtistProvider';
 import SpotifyTokenProvider from './providers/SpotifyTokenProvider';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 function App() {
 
@@ -12,7 +16,7 @@ function App() {
       <ArtistProvider>
         <div className="App">
           <Header />
-          <main className="overflow-x-hidden w-screen">
+          <main className="w-screen">
             <Outlet />
           </main>
         </div>

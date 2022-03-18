@@ -56,7 +56,7 @@ export default function SpotifyTokenProvider(props: { children: React.ReactNode 
       spotifyToken,
       setSpotifyToken
     }),
-    [spotifyToken, spotifyApi]
+    [spotifyToken, spotifyApi, setSpotifyToken]
   );
 
   return (
