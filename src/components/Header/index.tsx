@@ -42,7 +42,7 @@ export default function Header() {
 };
 
   return (
-    <header className="fixed top-0 left-0 w-full px-8 py-10">
+    <header className="fixed top-0 left-0 w-full px-8 py-10 z-[1]">
       <div className="flex flex-nowrap items-center">
         <div className="flex-none">
           <Link to="/" className="relative logo oval-decoration">
@@ -67,7 +67,7 @@ export default function Header() {
             </AnimatePresence> */}
           </h2>
         </div>
-        <div className="flex-none">
+        <div className="flex-none z-10">
           <Link
             to="artists"
             className="text-2xl inline-flex"

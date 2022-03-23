@@ -1,12 +1,14 @@
-import React, { LegacyRef, Ref, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import React, { LegacyRef, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import classnames from 'classnames';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion, useAnimation, Variants } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useSpotifyArtistTopTracks } from '../hooks/useSpotify';
 import { after } from 'underscore';
-import tracksJSON from '../api/topTracks.json';
 import SplitType from 'split-type'
+import { useInView } from 'react-intersection-observer';
+
+//import tracksJSON from '../api/topTracks.json';
 interface ProfileProps {
 	artist: SpotifyApi.SingleArtistResponse,
 }
@@ -24,7 +26,7 @@ const Profile = ({ artist }: ProfileProps) => {
 	let hasScrolled = false;
 
 	// Create a custom array of objects with additional info from SpotifyApI Artist top tracks
-	/* const tracksJSON = useMemo(() => {
+	const tracksJSON = useMemo(() => {
 		if(typeof tracksData === "undefined") return [];
 		return tracksData.tracks.reduce((acc: CustonImageObject[], curr) => {
 			const random = Math.floor(Math.random() * 3) + 1;
@@ -41,7 +43,7 @@ const Profile = ({ artist }: ProfileProps) => {
 			acc.push(customImageObject);
 			return acc;
 		}, [])
-	}, [tracksData]) */
+	}, [tracksData])
 
 	const goToSection = (section: Element, anim: GSAPTimeline) => {
 		if(hasScrolled) {
@@ -100,14 +102,14 @@ const Profile = ({ artist }: ProfileProps) => {
 					{tracksJSON.length > 0 && tracksJSON.map((image, index) => {
 						return (
 							<motion.section 
-									key={`section-image-${index}`}
-								className={classnames("artist-profile_gallery-section flex shrink-0 px-[100px]")}
+								key={`section-image-${index}`}
+								className={classnames("artist-profile_gallery-section flex shrink-0 px-[100px] perspective-screen overflow-hidden")}
 							>
 								<ArtistImage
 									className="h-fit inline-flex"
 									ratioClass={image.ratio}
-									//positionClass={image.position}
-									positionClass={"aspect-[9/12] max-w-[400px]"}
+									positionClass={image.position}
+									//positionClass={"aspect-[9/12] max-w-[400px]"}
 									imageData={image} 
 									name={artist?.name}
 									onComplete={onComplete}
@@ -132,18 +134,31 @@ interface ArtistImageProps {
 }
 
 const ArtistImage = ({ ratioClass = "aspect-square max-w-[400px]", positionClass = "", name, imageData, className, onComplete }: ArtistImageProps) => {
-	const imageRef = useRef(null);
+	const controls = useAnimation();
+	const [ref, inView] = useInView({ threshold: 0, triggerOnce: true, delay: 100 });
+	const squareVariants: Variants = {
+		visible: { clipPath: "inset(0px 0px 0px 0px)", translateZ: 50, transition: { duration: 1, easings: [0.77, 0, 0.175, 1] } },
+		hidden: { clipPath: "inset(0px 0px 0px 600px)", translateZ: -300 }
+	};
+	useEffect(() => {
+		if (inView) {
+			controls.start("visible");
+		}
+	}, [controls, inView]);
 
-    return (
-			<motion.img
-				ref={imageRef}
-				src={imageData?.url}
-				alt={`${name} cover`}
-				onLoad={() => onComplete()}
-				onError={() => onComplete()}
-				className={classnames("object-cover origin-center backface-visible inline-flex", className, ratioClass, positionClass)}
-			/>
-    )
+	return (
+		<motion.img
+			ref={ref}
+			src={imageData?.url}
+			alt={`${name} cover`}
+			onLoad={() => onComplete()}
+			onError={() => onComplete()}
+			animate={controls}
+			initial="hidden"
+			variants={squareVariants}
+			className={classnames("object-cover origin-center backface-visible inline-flex", className, ratioClass, positionClass)}
+		/>
+	)
 }
 
 const AnimatedHeading = ({ name }:{name: string}) => {

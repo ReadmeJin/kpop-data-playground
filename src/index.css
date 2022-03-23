@@ -6,7 +6,6 @@
     html, body {
         font-family: "Noto Serif Display", serif;
         scroll-behavior: smooth;
-        overflow-x: hidden;
     }
 
     .oval-decoration::before {
@@ -47,11 +46,5 @@
     }
     .perspective-screen{
         perspective: 100vw;
-    }
-    .perspective-center{
-        perspective-origin: center;
-    }
-    .backface-visible{
-        backface-visibility: visible;
     }
   }
