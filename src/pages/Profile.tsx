@@ -7,8 +7,9 @@ import { useSpotifyArtistTopTracks } from '../hooks/useSpotify';
 import { after } from 'underscore';
 import SplitType from 'split-type'
 import { useInView } from 'react-intersection-observer';
+import useDebouncedResize from '../hooks/useDebouncedResize';
 
-//import tracksJSON from '../api/topTracks.json';
+import tracksJSON from '../api/topTracks.json';
 interface ProfileProps {
 	artist: SpotifyApi.SingleArtistResponse,
 }
@@ -20,13 +21,15 @@ interface CustonImageObject extends SpotifyApi.ImageObject {
 const Profile = ({ artist }: ProfileProps) => {
 	const sectionRef: LegacyRef<HTMLDivElement> = useRef(null);
 	const [allImagesLoaded, setAllImagesLoaded] = useState(false);
-	const { data: tracksData } = useSpotifyArtistTopTracks(artist.id);
+	//const { data: tracksData } = useSpotifyArtistTopTracks(artist.id);
+	const { windowSize } = useDebouncedResize();
+	const { width, height } = windowSize;
 	const scrollTimeline = gsap.timeline({paused: true});
 	const sectionId = "profile-section";
 	let hasScrolled = false;
 
 	// Create a custom array of objects with additional info from SpotifyApI Artist top tracks
-	const tracksJSON = useMemo(() => {
+	/* const tracksJSON = useMemo(() => {
 		if(typeof tracksData === "undefined") return [];
 		return tracksData.tracks.reduce((acc: CustonImageObject[], curr) => {
 			const random = Math.floor(Math.random() * 3) + 1;
@@ -43,7 +46,7 @@ const Profile = ({ artist }: ProfileProps) => {
 			acc.push(customImageObject);
 			return acc;
 		}, [])
-	}, [tracksData])
+	}, [tracksData]) */
 
 	const goToSection = (section: Element, anim: GSAPTimeline) => {
 		if(hasScrolled) {
@@ -61,6 +64,10 @@ const Profile = ({ artist }: ProfileProps) => {
     const addAnimation = () => {
 			const gallery = sectionRef.current!;
 			const totalScroll = gallery.scrollWidth - window.innerWidth;
+			const artistName = gallery.getElementsByClassName("artist-name");
+			let proxy = { skew: 0 };
+			let skewSetter = gsap.quickSetter(artistName, "skewX", "deg");
+			let clamp = gsap.utils.clamp(-20, 20);
         
 			scrollTimeline.add(gsap.to(gallery, {
 					x: () => -totalScroll,
@@ -70,9 +77,22 @@ const Profile = ({ artist }: ProfileProps) => {
 					trigger: gallery,
 					pin: true,
 					scrub: 1.2,
-						start: "center center",
+					start: "center center",
 					end: () => `+=${totalScroll}`,
 					onEnter: () => goToSection(gallery, scrollTimeline),
+						onUpdate: self => {
+							let skew = clamp(self.getVelocity() / -300);
+							if (Math.abs(skew) > Math.abs(proxy.skew)) {
+								proxy.skew = skew;
+								gsap.to(proxy, {
+									skew: 0,
+									duration: 0.8,
+									ease: "power3.easeInOut",
+									overwrite: true,
+									onUpdate: () => skewSetter(proxy.skew)
+								})
+							}
+						}
 				}
 			}))
 
@@ -93,11 +113,11 @@ const Profile = ({ artist }: ProfileProps) => {
 			return () => {
 				removeAnimation();
 			}
-    }, [allImagesLoaded, sectionRef.current, tracksJSON.length])
+		}, [allImagesLoaded, sectionRef.current, tracksJSON.length, width, height])
   
     return (
 			<motion.div ref={sectionRef} id={sectionId} className="artist-profile relative w-fit flex">
-				<motion.div className="artist-profile_gallery flex flex-nowrap">
+				<motion.div className="artist-profile_gallery flex flex-nowrap ml-[5vw] 2xl:ml-[15vw]">
 					<AnimatedHeading name={artist.name}/>
 					{tracksJSON.length > 0 && tracksJSON.map((image, index) => {
 						return (
@@ -108,8 +128,8 @@ const Profile = ({ artist }: ProfileProps) => {
 								<ArtistImage
 									className="h-fit inline-flex"
 									ratioClass={image.ratio}
-									positionClass={image.position}
-									//positionClass={"aspect-[9/12] max-w-[400px]"}
+									//positionClass={image.position}
+									positionClass={"aspect-[9/12] max-w-[400px]"}
 									imageData={image} 
 									name={artist?.name}
 									onComplete={onComplete}
