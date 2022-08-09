@@ -14,31 +14,31 @@ export default function ArtistHome() {
   const { params: { artistId: artistGUID, artistName } } = useMatch();
 
   const { data, isLoading } = useSpotifyArtist(artistGUID);
- 
+
   const container: Variants = {
-      visible: {
-        scaleY: 1,
-          transition: {
-              staggerChildren: 0.05,
-              duration: 0.5
-          }
-      },
-      hidden: {
-        scaleY: 0,
-        transition: {
-            staggerChildren: 0.05,
-            duration: 0.4
-        }
+    visible: {
+      scaleY: 1,
+      transition: {
+        staggerChildren: 0.05,
+        duration: 0.5
+      }
+    },
+    hidden: {
+      scaleY: 0,
+      transition: {
+        staggerChildren: 0.05,
+        duration: 0.4
+      }
     }
   }
 
   useEffect(() => {
-    if(artistId === "/") navigate({to: "/artists"});
+    if (artistId === "/") navigate({ to: "/artists" });
   }, [artistId, navigate])
 
   return (
     <div id="artistPage">
-      <ArtistSubMenu artistId={artistId}/>
+      <ArtistSubMenu artistId={artistId} />
       <AnimatePresence exitBeforeEnter>
         {!data && <motion.div
           key="loading"
@@ -47,15 +47,15 @@ export default function ArtistHome() {
           exit="hidden"
           className="fixed w-full h-screen bg-cream dark:bg-black inset-0 whitespace-pre-line flex flex-col place-content-center items-center text-[6vw] p-20 uppercase"
           variants={container}
-          >
-          </motion.div>}
+        >
+        </motion.div>}
         {data && <motion.div
           key="content-section"
           className="pt-[136px] px-16 2xl:px-20"
-          initial={{opacity: 0}}
-          animate={{opacity: 1}}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
         >
-          <Profile artist={data!} />
+          <Profile />
           <YoutubeStats />
         </motion.div>}
       </AnimatePresence>
