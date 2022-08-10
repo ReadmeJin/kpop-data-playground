@@ -1,11 +1,9 @@
 export const artistsData = {
     blackpink: {
         title: 'BlackPink',
-        bio: `Blackpink (Hangul: 블랙핑크), stylized as BLACKPINK or BLΛƆKPIИK, is a South Korean girl group formed by YG Entertainment and the first girl group to debut under the same entertainment company seven years after 2NE1. The group consists of four members: Jennie, Lisa, Jisoo, and Rosé . They officially debuted on August 8, 2016 with the single album Square One . Blackpink fans are called "Blink". The fandom name Blink means the fans start with Blackpink and end with Blackpink. On June 16, 2021, it was announced that BLACKPINK: The Movie will air on August 8, as part of their "4+1 PROJECT" to commemorate the group's fifth anniversary. 
-        
-        On July 14, YG announced that BLACKPINK would be joining WEVERSE on August 2, as part of the “4+1 Project”. On July 28, YG announced BLACKPINK’s 2021 Summer Diary as part of the “4+1 Project," it is set to be released on August 25. To celebrate their 5th anniversary, a BLACKPINK island, ‘In Your Area Island’, will be released on Animal Crossing: New Horizons on August 6. As the final part of the "4+1 PROJECT," a special pop up exhibition will be opening on August 21 until August 30. The exhibition will reflect the concept of the songs BLACKPINK has released so far.
-        
-        On August 1, 2022, a Born Pink announcement trailer was posted on the group's social media accounts announcing that the group will be releasing a pre-release single in August, an album in September, and starting a world tour in October. Later that day, YG explained that Born Pink is the project name for their upcoming releases. On August 8, a teaser poster was posted which revealed that the group will be releasing the pre-release single, "Pink Venom" on August 19. The next day, a schedule announcement was posted which announced that the world tour, Born Pink, will start on October 15 at Seoul, South Korea`,
+        bio: `Blackpink (Hangul: 블랙핑크), stylized as BLACKPINK or BLΛƆKPIИK, is a South Korean girl group formed by YG Entertainment and the first girl group to debut under the same entertainment company seven years after 2NE1. The group consists of four members: Jennie, Lisa, Jisoo, and Rosé . They officially debuted on August 8, 2016 with the single album Square One . Blackpink fans are called "Blink". The fandom name Blink means the fans start with Blackpink and end with Blackpink. On June 16, 2021, it was announced that BLACKPINK: The Movie will air on August 8, as part of their "4+1 PROJECT" to commemorate the group's fifth anniversary.`,
+        assets_folder_name: "blackpink",
+        main_group_image: "blackpink.jpg",
         total_youtube_subscribers: 75000000,
         most_watched_videos: [
             {

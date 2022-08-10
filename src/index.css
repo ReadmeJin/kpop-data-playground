@@ -6,6 +6,7 @@
     html, body {
         font-family: "Noto Serif Display", serif;
         scroll-behavior: smooth;
+        overflow-x: hidden;
     }
 
     .oval-decoration::before {
@@ -32,6 +33,15 @@
         height: auto;
         border-width: 2px;
     }
+    
+    @media(prefers-color-scheme: dark) {
+        .artist-bio__text-line.dark\:clip-text-reveal {
+            background: linear-gradient(to right, theme(colors.cream) 50%, theme(colors.gray.800) 50%);
+            background-size: 200% 100%;
+            background-position-x: 100%;
+            @apply text-transparent bg-clip-text;
+        }
+    }
 }
 
 @layer utilities {
@@ -47,4 +57,10 @@
     .perspective-screen{
         perspective: 100vw;
     }
-  }
+    .clip-text-reveal {
+        background: linear-gradient(to right, theme(colors.black) 50%, theme(colors.cream) 50%);
+        background-size: 200% 100%;
+        background-position-x: 100%;
+        @apply text-transparent bg-clip-text;
+    }
+}
