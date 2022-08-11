@@ -63,4 +63,7 @@
         background-position-x: 100%;
         @apply text-transparent bg-clip-text;
     }
+    .font-heading-2{
+        @apply text-[clamp(24px,4vw,3vw)] font-light mb-3;
+    }
 }

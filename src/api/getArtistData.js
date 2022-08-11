@@ -10,25 +10,29 @@ export const artistsData = {
                 video_total_views: 1923978660,
                 video_title: "BLACKPINK - ‘뚜두뚜두 (DDU-DU DDU-DU)’ M/V",
                 video_date_published: '06/2018',
-                video_url: 'https://www.youtube.com/watch?v=IHNzOHi8sJs&ab_channel=BLACKPINK'
+                video_url: 'https://www.youtube.com/watch?v=IHNzOHi8sJs&ab_channel=BLACKPINK',
+                video_thumbnail: 'thumbnail-1.png'
             },
             {
                 video_total_views: 1634242310,
                 video_title: "BLACKPINK - 'Kill This Love' M/V",
                 video_date_published: '04/2019',
-                video_url: 'https://www.youtube.com/watch?v=2S24-y0Ij3Y&ab_channel=BLACKPINK'
+                video_url: 'https://www.youtube.com/watch?v=2S24-y0Ij3Y&ab_channel=BLACKPINK',
+                video_thumbnail: 'thumbnail-2.jpg'
             },
             {
                 video_total_views: 1453565660,
                 video_title: "BLACKPINK - '붐바야 (BOOMBAYAH)' M/V",
                 video_date_published: '08/2016',
-                video_url: 'https://www.youtube.com/watch?v=bwmSjveL3Lc&ab_channel=BLACKPINK'
+                video_url: 'https://www.youtube.com/watch?v=bwmSjveL3Lc&ab_channel=BLACKPINK',
+                video_thumbnail: 'thumbnail-3.jpg'
             },
             {
                 video_total_views: 1194619456,
                 video_title: "BLACKPINK - '마지막처럼 (AS IF IT'S YOUR LAST)' M/V",
                 video_date_published: '06/2017',
-                video_url: 'https://www.youtube.com/watch?v=Amq-qlqbjYA&ab_channel=BLACKPINK'
+                video_url: 'https://www.youtube.com/watch?v=Amq-qlqbjYA&ab_channel=BLACKPINK',
+                video_thumbnail: 'thumbnail-4.jpg'
             },
         ],
         total_spotify_followers: 20975005,
