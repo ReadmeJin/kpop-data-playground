@@ -7,6 +7,8 @@
         font-family: "Noto Serif Display", serif;
         scroll-behavior: smooth;
         overflow-x: hidden;
+        height: 100%;
+        width: 100%;
     }
 
     .oval-decoration::before {
@@ -35,12 +37,33 @@
     }
     
     @media(prefers-color-scheme: dark) {
-        .artist-bio__text-line.dark\:clip-text-reveal {
+        .clip-text-reveal {
             background: linear-gradient(to right, theme(colors.cream) 50%, theme(colors.gray.800) 50%);
             background-size: 200% 100%;
             background-position-x: 100%;
             @apply text-transparent bg-clip-text;
         }
+    }
+
+    .dark .clip-text-reveal {
+        background: linear-gradient(to right, theme(colors.cream) 50%, theme(colors.gray.800) 50%) default;
+        background-size: 200% 100%;
+        background-position-x: 100%;
+        @apply text-transparent bg-clip-text;
+    }
+    .dark .fill-cream{
+        fill: theme(colors.black);
+    }
+    .dark .fill-black{
+        fill: theme(colors.cream);
+    }
+    .graph-line_wrapper svg g path {
+        -webkit-filter: drop-shadow( 6px 12px 8px theme(colors.cream-70));
+        filter: drop-shadow( 6px 12px 8px theme(colors.cream-70));
+    }
+    .dark .graph-line_wrapper svg g path {
+        -webkit-filter: drop-shadow( 6px 12px 8px theme(colors.black-70));
+        filter: drop-shadow( 6px 12px 8px theme(colors.black-70));
     }
 }
 
@@ -56,12 +79,6 @@
     }
     .perspective-screen{
         perspective: 100vw;
-    }
-    .clip-text-reveal {
-        background: linear-gradient(to right, theme(colors.black) 50%, theme(colors.cream) 50%);
-        background-size: 200% 100%;
-        background-position-x: 100%;
-        @apply text-transparent bg-clip-text;
     }
     .font-heading-2{
         @apply text-[clamp(24px,4vw,3vw)] font-light mb-3;

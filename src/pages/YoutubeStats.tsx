@@ -2,13 +2,14 @@ import React, { forwardRef, LegacyRef } from 'react'
 import { artistsData } from '../api/getArtistData';
 import AnimatedTextReveal from '../components/AnimatedTextReveal';
 import Counter from '../components/Counter';
+import LineGraph from '../components/LineGraph';
 import VideoStats from '../components/VideoStats';
 
 interface YoutubeStatsProps {
 }
 export const YoutubeStats = () => {
     return (
-        <div id="youtube-counts-section" className="h-screen my-52 md:my-[40vh]">
+        <div id="youtube-counts-section" className="pt-52 md:pt-[40vh]">
             <div className='youtube-subs__container text-center mb-24 md:mb-[10vh]'>
                 <h2>
                     <AnimatedTextReveal
@@ -46,6 +47,9 @@ export const YoutubeStats = () => {
                         )
                     })}
                 </ul>
+            </div>
+            <div className='youtube-stats__container'>
+                <LineGraph />
             </div>
         </div>
     )

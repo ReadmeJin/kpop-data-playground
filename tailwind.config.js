@@ -2,11 +2,14 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}", "**/*.html"
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
         'cream': "#eceae5",
-        'black': "#050709"
+        'cream-70': "#eceae570",
+        'black': "#050709",
+        'black-70': "#05070970"
       }
     },
     fontSize: {
@@ -18,7 +21,11 @@ module.exports = {
       '3xl': ['48px', { lineHeight: '60px' }],
       '4xl': ['56px', { lineHeight: '64px' }],
       '5xl': ['64px', { lineHeight: '80px' }],
-    }
+    },
+    fill: ({ theme }) => ({
+      cream: theme('colors.cream'),
+      black: theme('colors.black'),
+    })
   },
   plugins: [],
 }
