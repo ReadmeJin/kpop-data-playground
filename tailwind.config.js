@@ -6,10 +6,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'cream': "#eceae5",
-        'cream-70': "#eceae570",
-        'black': "#050709",
-        'black-70': "#05070970"
+        'cream': 'rgb(var(--color-cream) / 1)',
+        'cream-70': 'rgb(var(--color-cream) / 0.7)',
+        'black': 'rgb(var(--color-black) / 1)',
+        'black-70': 'rgb(var(--color-black) / 0.7)',
       }
     },
     fontSize: {

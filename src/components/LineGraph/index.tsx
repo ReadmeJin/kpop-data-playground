@@ -2,10 +2,18 @@ import React from 'react';
 import { ResponsiveLine } from '@nivo/line';
 import { data } from '../../api/getYoutubeStatsData';
 import { AxisTickProps } from '@nivo/axes'
+import useDarkMode from '../../hooks/useDarkMode';
 
 type Props = {}
 
 export default function LineGraph({ }: Props) {
+    const { isDarkMode } = useDarkMode();
+    const ligthColor = getComputedStyle(document.documentElement)
+        .getPropertyValue('--color-cream');
+    const darkColor = getComputedStyle(document.documentElement)
+        .getPropertyValue('--color-black');
+
+    const lineGraphColor = isDarkMode ? `rgb(${ligthColor})` : `rgb(${darkColor})`;
 
     return (
         <div className='graph-line_wrapper max-w-[60vw] min-h-[60vh] h-0 w-4/6 my-[30vh] inline-block'>
@@ -16,13 +24,13 @@ export default function LineGraph({ }: Props) {
                 animate={true}
                 lineWidth={4}
                 curve="monotoneX"
-                colors={["#eceae5"]}
+                colors={lineGraphColor}
                 enableGridX={false}
                 enableCrosshair={false}
                 pointSize={24}
-                pointColor="#eceae5"
+                pointColor={lineGraphColor}
                 pointBorderWidth={5}
-                pointBorderColor="#050709"
+                pointBorderColor={lineGraphColor === `rgb(${ligthColor})` ? `rgb(${darkColor})` : `rgb(${ligthColor})`}
                 useMesh={true}
                 yScale={{
                     type: "linear",
@@ -45,7 +53,7 @@ export default function LineGraph({ }: Props) {
                     grid: {
                         line: {
                             opacity: 0.5,
-                            stroke: "#eceae5"
+                            stroke: lineGraphColor
                         }
                     }
                 }}
