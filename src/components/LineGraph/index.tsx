@@ -1,4 +1,3 @@
-import React from 'react';
 import { ResponsiveLine } from '@nivo/line';
 import { data } from '../../api/getYoutubeStatsData';
 import { AxisTickProps } from '@nivo/axes'
@@ -16,49 +15,47 @@ export default function LineGraph({ }: Props) {
     const lineGraphColor = isDarkMode ? `rgb(${ligthColor})` : `rgb(${darkColor})`;
 
     return (
-        <div className='graph-line_wrapper max-w-[60vw] min-h-[60vh] h-0 w-4/6 my-[30vh] inline-block'>
-            <ResponsiveLine
-                data={data}
-                gridYValues={[0, 20, 40, 60]}
-                margin={{ top: 20, right: 50, bottom: 120, left: 120 }}
-                animate={true}
-                lineWidth={4}
-                curve="monotoneX"
-                colors={lineGraphColor}
-                enableGridX={false}
-                enableCrosshair={false}
-                pointSize={24}
-                pointColor={lineGraphColor}
-                pointBorderWidth={5}
-                pointBorderColor={lineGraphColor === `rgb(${ligthColor})` ? `rgb(${darkColor})` : `rgb(${ligthColor})`}
-                useMesh={true}
-                yScale={{
-                    type: "linear",
-                    min: 0,
-                    max: 60
-                }}
-                axisLeft={{
-                    tickValues: [0, 20, 40, 60],
-                    format: value => Number(value) === 0 ? value : `${value}M`,
-                    tickSize: 0,
-                    tickPadding: 80,
-                    renderTick: CustomTick
-                }}
-                axisBottom={{
-                    tickSize: 0,
-                    tickPadding: 80,
-                    renderTick: CustomTick
-                }}
-                theme={{
-                    grid: {
-                        line: {
-                            opacity: 0.5,
-                            stroke: lineGraphColor
-                        }
+        <ResponsiveLine
+            data={data}
+            gridYValues={[0, 20, 40, 60]}
+            margin={{ top: 20, right: 50, bottom: 120, left: 120 }}
+            animate={true}
+            lineWidth={4}
+            curve="monotoneX"
+            colors={lineGraphColor}
+            enableGridX={false}
+            enableCrosshair={false}
+            pointSize={24}
+            pointColor={lineGraphColor}
+            pointBorderWidth={5}
+            pointBorderColor={lineGraphColor === `rgb(${ligthColor})` ? `rgb(${darkColor})` : `rgb(${ligthColor})`}
+            useMesh={true}
+            yScale={{
+                type: "linear",
+                min: 0,
+                max: 60
+            }}
+            axisLeft={{
+                tickValues: [0, 20, 40, 60],
+                format: value => Number(value) === 0 ? value : `${value}M`,
+                tickSize: 0,
+                tickPadding: 80,
+                renderTick: CustomTick
+            }}
+            axisBottom={{
+                tickSize: 0,
+                tickPadding: 80,
+                renderTick: CustomTick
+            }}
+            theme={{
+                grid: {
+                    line: {
+                        opacity: 0.5,
+                        stroke: lineGraphColor
                     }
-                }}
-            />
-        </div >
+                }
+            }}
+        />
     )
 }
 
