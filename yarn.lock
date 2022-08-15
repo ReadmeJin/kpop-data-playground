@@ -7561,6 +7561,11 @@ react-scripts@5.0.0:
   optionalDependencies:
     fsevents "^2.3.2"
 
+react-socks@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/react-socks/-/react-socks-2.2.0.tgz#8b3884a5a735f21119ad44244f7e754afe9d98fe"
+  integrity sha512-JHK7WM4nA8M28CJ/PXlJI/yjg61TlhdsM8BAD5tvWDEO0uT9iFpU671SGl43TEcdPmlytB7nc95PzWIFYTI4/w==
+
 react-ui-scrollspy@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/react-ui-scrollspy/-/react-ui-scrollspy-2.1.0.tgz#60ccaddcd5cd458721854f0a49dea6580e01a3f0"
