@@ -5,10 +5,9 @@ import useDarkMode from '../../hooks/useDarkMode';
 import useBreakpointValue from '../../hooks/useBreakpointValue';
 
 type Props = {
-    width: number,
 }
 
-export default function LineGraph({ width }: Props) {
+export default function LineGraph({ }: Props) {
     const { isDarkMode } = useDarkMode();
     const ligthColor = getComputedStyle(document.documentElement).getPropertyValue('--color-cream');
     const darkColor = getComputedStyle(document.documentElement).getPropertyValue('--color-black');
@@ -40,7 +39,6 @@ export default function LineGraph({ width }: Props) {
             pointColor={lineGraphColor}
             pointBorderWidth={pointBorderWidth}
             pointBorderColor={lineGraphColor === `rgb(${ligthColor})` ? `rgb(${darkColor})` : `rgb(${ligthColor})`}
-            useMesh={true}
             yScale={{
                 type: "linear",
                 min: 0,
