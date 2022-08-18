@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useMatch, useNavigate } from '@tanstack/react-location';
 import useSessionStorage from '../hooks/useSessionStorage';
 import ArtistSubMenu from '../components/ArtistSubMenu';
-import AnimatedText from '../components/AnimatedText';
-import { Profile, YoutubeStats } from './';
+import { Profile, YoutubeStats, StreamStats } from './';
 import { useSpotifyArtist } from '../hooks/useSpotify';
-import ScrollSpy from "react-ui-scrollspy";
 import { AnimatePresence, motion, Variants } from 'framer-motion';
 
 export default function ArtistHome() {
@@ -57,6 +55,7 @@ export default function ArtistHome() {
         >
           <Profile />
           <YoutubeStats />
+          <StreamStats />
         </motion.div>}
       </AnimatePresence>
     </div>

@@ -18,7 +18,7 @@ function GraphControlsLayout({ AsideComponent, GraphComponent }: Props) {
             <aside className='grid md:grid-cols-2 lg:grid-cols-1 gap-14 lg:gap-16 flex-1 md:flex-none px-4'>
                 {componentsHandler(AsideComponent)}
             </aside>
-            <section className='graph-line_wrapper h-auto w-full min-w-0 aspect-video'>
+            <section className='graph-line_wrapper h-auto w-full min-w-0 aspect-video max-h-60 sm:max-h-max'>
                 {componentsHandler(GraphComponent)}
             </section>
         </div>

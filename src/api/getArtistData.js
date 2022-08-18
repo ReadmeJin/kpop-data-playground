@@ -41,25 +41,29 @@ export const artistsData = {
                 song_total_views: 444436073,
                 song_title: "Kill This Love",
                 song_date_published: '04/2019',
-                song_url: 'https://open.spotify.com/track/6hvczQ05jc1yGlp9zhb95V?si=0b11bb48a22749bb'
+                song_url: 'https://open.spotify.com/track/6hvczQ05jc1yGlp9zhb95V?si=0b11bb48a22749bb',
+                song_thumbnail: 'song-1.jpg'
             },
             {
                 song_total_views: 421583842,
                 song_title: "How you like that",
                 song_date_published: '06/2020',
-                song_url: 'https://open.spotify.com/track/4SFknyjLcyTLJFPKD2m96o?si=56b99a212b91420c'
+                song_url: 'https://open.spotify.com/track/4SFknyjLcyTLJFPKD2m96o?si=56b99a212b91420c',
+                song_thumbnail: 'song-2.jpg'
             },
             {
                 song_total_views: 415130847,
                 song_title: "Kiss and Make Up",
                 song_date_published: '08/2016',
-                song_url: 'https://open.spotify.com/track/7jr3iPu4O4bTCVwLMbdU2i?si=71ecca38da1c484c'
+                song_url: 'https://open.spotify.com/track/7jr3iPu4O4bTCVwLMbdU2i?si=71ecca38da1c484c',
+                song_thumbnail: 'song-3.jpg'
             },
             {
                 song_total_views: 374758576,
                 song_title: "DDU-DU DDU-DU",
                 song_date_published: '06/2018',
-                song_url: 'https://open.spotify.com/track/4lQsB3ERTWSNaAN1IkuNRl?si=4cfd30e255a54f3f'
+                song_url: 'https://open.spotify.com/track/4lQsB3ERTWSNaAN1IkuNRl?si=4cfd30e255a54f3f',
+                song_thumbnail: 'song-4.jpg'
             },
         ],
         instagram: {

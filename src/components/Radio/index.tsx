@@ -8,7 +8,7 @@ type ButtonProps = {
 }
 
 const Button: React.FC<ButtonProps> = ({ children, id, value, ...props }) => (
-    <li className='overflow-hidden rounded-full inline-flex'>
+    <li className='overflow-hidden rounded-full inline-flex justify-center'>
         <input type="radio" id={id} value={value} {...props} className="hidden peer" required />
         <label htmlFor={id} className="btn-radio--outline peer-checked:btn-radio transition">
             {children}

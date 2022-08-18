@@ -22,7 +22,7 @@ export const YoutubeStats = () => {
                 </h2>
 
                 <Counter
-                    className='youtube=subs__count text-[clamp(60px,12vw,12vw)] leading-none'
+                    className='youtube=subs__count text-[clamp(22px,12vw,300px)] text-center'
                     from={100000}
                     to={artistsData.blackpink.total_youtube_subscribers}
                     duration={2}
@@ -42,7 +42,15 @@ export const YoutubeStats = () => {
                     {artistsData.blackpink.most_watched_videos.map((video, videoIndex) => {
                         return (
                             <li key={`youtube-video-${videoIndex}`} className='youtube-videos__list-item shrink-0 w-full md:w-1/3 xl:w-1/4 2xl:w-1/5'>
-                                <VideoStats index={videoIndex} folder={artistsData.blackpink.assets_folder_name} {...video} />
+                                <VideoStats
+                                    index={videoIndex}
+                                    folder={artistsData.blackpink.assets_folder_name}
+                                    total_views={video.video_total_views}
+                                    thumbnail={video.video_thumbnail}
+                                    url={video.video_url}
+                                    title={video.video_title}
+                                    date_published={video.video_date_published}
+                                />
                             </li>
                         )
                     })}
@@ -62,7 +70,7 @@ export const YoutubeStats = () => {
                     <YoutubeGraph />
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

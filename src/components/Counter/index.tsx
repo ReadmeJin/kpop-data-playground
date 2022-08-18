@@ -7,9 +7,11 @@ type Props = {
     to: number;
     duration?: number;
     className?: string;
+    onComplete?: () => void,
+    onPlay?: () => void,
 }
 
-export default function Counter({ from = 0, to, duration = 1, className = '' }: Props) {
+export default function Counter({ from = 0, to, duration = 1, className = '', onComplete, onPlay }: Props) {
     const [counter, setCounter] = useState(from.toString());
     const [ref, inView] = useInView({ threshold: 0, triggerOnce: true, delay: 100 });
 
@@ -24,7 +26,9 @@ export default function Counter({ from = 0, to, duration = 1, className = '' }: 
                 duration,
                 onUpdate(value: number) {
                     setCounter(numberWithCommas(Math.ceil(value)))
-                }
+                },
+                onComplete,
+                onPlay,
             });
         }
 
