@@ -19,7 +19,7 @@ export default function StreamStats() {
                 </h2>
 
                 <Counter
-                    className='spotify=subs__count text-[clamp(22px,12vw,300px)] text-center'
+                    className='spotify-subs__count text-[clamp(22px,12vw,300px)] text-center'
                     from={100000}
                     to={artistsData.blackpink.total_spotify_followers}
                     duration={2}

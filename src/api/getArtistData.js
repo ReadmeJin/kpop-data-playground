@@ -72,18 +72,22 @@ export const artistsData = {
                 {
                     hashtag: "@lalalalisa_m",
                     total_followers: 50800000,
+                    account_thumbnail: 'account-1.jpg'
                 },
                 {
                     hashtag: "@jennieruby.jane",
                     total_followers: 43700000,
+                    account_thumbnail: 'account-2.jpg'
                 },
                 {
                     hashtag: "@roses_are_rosie",
                     total_followers: 39500000,
+                    account_thumbnail: 'account-3.jpg'
                 },
                 {
                     hashtag: "@sooyaa__",
                     total_followers: 39500000,
+                    account_thumbnail: 'account-4.jpg'
                 },
             ]
         },
