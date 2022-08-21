@@ -72,37 +72,44 @@ export const artistsData = {
                 {
                     hashtag: "@lalalalisa_m",
                     total_followers: 50800000,
-                    account_thumbnail: 'account-1.jpg'
+                    account_thumbnail: 'account-1.jpg',
+                    url: "https://www.instagram.com/lalalalisa_m/"
                 },
                 {
-                    hashtag: "@jennieruby.jane",
+                    hashtag: "@jennierubyjane",
                     total_followers: 43700000,
-                    account_thumbnail: 'account-2.jpg'
+                    account_thumbnail: 'account-2.jpg',
+                    url: "https://www.instagram.com/jennierubyjane/"
                 },
                 {
                     hashtag: "@roses_are_rosie",
                     total_followers: 39500000,
-                    account_thumbnail: 'account-3.jpg'
+                    account_thumbnail: 'account-3.jpg',
+                    url: "https://www.instagram.com/roses_are_rosie/"
                 },
                 {
                     hashtag: "@sooyaa__",
                     total_followers: 39500000,
-                    account_thumbnail: 'account-4.jpg'
+                    account_thumbnail: 'account-4.jpg',
+                    url: "https://www.instagram.com/sooyaaa__/"
                 },
             ]
         },
         social_media_info: [
             {
+                social_media: "Twitter",
                 account: "@blackpink",
                 total_followers: 3803218,
                 new_followers_today: 4154
             },
             {
+                social_media: "Facebook",
                 account: "@blackpinkofficial",
                 total_followers: 16090000,
                 new_followers_today: 4006
             },
             {
+                social_media: "Fancafe",
                 account: "@blackpinki",
                 total_followers: 49437,
                 new_followers_today: 9

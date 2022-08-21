@@ -55,8 +55,8 @@ export default function ArtistHome() {
         >
           <Profile />
           <YoutubeStats />
-          <SocialMedia />
           <StreamStats />
+          <SocialMedia />
         </motion.div>}
       </AnimatePresence>
     </div>

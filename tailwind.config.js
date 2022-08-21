@@ -1,4 +1,7 @@
+const FluidType = require('tailwindcss-fluid-type')
+
 module.exports = {
+  mode: 'jit',
   content: [
     "./src/**/*.{js,jsx,ts,tsx}", "**/*.html"
   ],
@@ -12,20 +15,37 @@ module.exports = {
         'black-70': 'rgb(var(--color-black) / 0.7)',
       }
     },
-    fontSize: {
-      xs: ['14px', { lineHeight: '24px' }],
-      sm: ['16px', { lineHeight: '28px' }],
-      lg: ['18px', { lineHeight: '28px' }],
-      xl: ['24px', { lineHeight: '36px' }],
-      '2xl': ['36px', { lineHeight: '48px' }],
-      '3xl': ['48px', { lineHeight: '60px' }],
-      '4xl': ['56px', { lineHeight: '64px' }],
-      '5xl': ['64px', { lineHeight: '80px' }],
+    fluidType: {
+      settings: {
+        fontSizeMin: 1.125,
+        fontSizeMax: 1.25,
+        ratioMin: 1.125,
+        ratioMax: 1.2,
+        screenMin: 20,
+        screenMax: 96,
+        unit: 'rem',
+        prefix: ''
+      },
+      values: {
+        'xs': [-2, 1.6],
+        'sm': [-1, 1.6],
+        'base': [0, 1.6],
+        'lg': [1, 1.6],
+        'xl': [2, 1.2],
+        '2xl': [3, 1.2],
+        '3xl': [4, 1.2],
+        '4xl': [5, 1.1],
+        '5xl': [6, 1.1],
+        '6xl': [7, 1.1],
+        '7xl': [8, 1],
+        '8xl': [9, 1],
+        '9xl': [10, 1],
+      }
     },
     fill: ({ theme }) => ({
       cream: theme('colors.cream'),
       black: theme('colors.black'),
     })
   },
-  plugins: [],
+  plugins: [FluidType],
 }

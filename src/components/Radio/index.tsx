@@ -26,7 +26,7 @@ type GroupProps = {
 const Group = ({ children, name, onChange, value }: GroupProps) => {
     if (!children) throw new Error("Radio group need at least one children");
     return (
-        <ul className='grid grid-cols-2 gap-10 mb-10 md:mb-16'>
+        <ul className='grid grid-columns-auto-fit gap-10 mb-10 md:mb-16'>
             {(isArray(children)) ? React.Children.map(children, (child: React.ReactElement) => {
                 if (!child) throw new Error("Radio group need at least one children");
                 return React.cloneElement(child, {
