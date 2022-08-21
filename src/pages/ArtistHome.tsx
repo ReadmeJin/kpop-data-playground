@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useMatch, useNavigate } from '@tanstack/react-location';
 import useSessionStorage from '../hooks/useSessionStorage';
 import ArtistSubMenu from '../components/ArtistSubMenu';
-import { Profile, YoutubeStats, StreamStats, SocialMedia } from './';
+import { Profile, YoutubeStats, StreamStats, SocialMedia, Album } from './';
 import { useSpotifyArtist } from '../hooks/useSpotify';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
 
@@ -57,6 +57,7 @@ export default function ArtistHome() {
           <YoutubeStats />
           <StreamStats />
           <SocialMedia />
+          <Album />
         </motion.div>}
       </AnimatePresence>
     </div>

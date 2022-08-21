@@ -119,27 +119,31 @@ export const artistsData = {
         album_list: [
             {
                 album_title: "square up",
-                album_info: "!st Mini Album",
+                album_info: "1st Mini Album",
                 album_released_date: "15/06/2018",
-                album_total_sales: 371698
+                album_total_sales: 371698,
+                album_thumbnail: "album-1.jpg",
             },
             {
                 album_title: "kill this love",
                 album_info: "2nd Mini Album",
                 album_released_date: "05/04/2019",
-                album_total_sales: 456628
+                album_total_sales: 456628,
+                album_thumbnail: "album-2.webp",
             },
             {
                 album_title: "How you like that",
-                album_info: "!st Single Album",
+                album_info: "1st Single Album",
                 album_released_date: "26/06/2020",
-                album_total_sales: 306900
+                album_total_sales: 306900,
+                album_thumbnail: "album-3.jpg",
             },
             {
                 album_title: "the album",
-                album_info: "!st Full Album",
+                album_info: "1st Full Album",
                 album_released_date: "20/10/2020",
-                album_total_sales: 1360667
+                album_total_sales: 1360667,
+                album_thumbnail: "album-4.jpg",
             },
         ]
     }
