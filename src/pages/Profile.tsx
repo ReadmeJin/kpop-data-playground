@@ -16,21 +16,10 @@ const Profile = ({ }: ProfileProps) => {
 
 		const bioLines = new SplitType(".artist-bio__text-list", {
 			types: "lines",
-			lineClass: "artist-bio__text-line clip-text-reveal dark:clip-text-reveal overflow-hidden"
+			lineClass: "artist-bio__text-line clip-text-reveal overflow-hidden"
 		})
-		/* const profileTitle = new SplitType(".artist-info__title", {
-			types: "chars",
-			charClass: "artist-info__title-char"
-		}) */
 
 		const wrapper = document.querySelector(".artist-bio__text-list");
-
-		/* gsap.fromTo(".artist-info__title-char", { y: "100%" }, {
-			y: 0,
-			ease: "0.455, 0.03, 0.515, 0.955",
-			stagger: 0.025,
-			delay: 0.4
-		}) */
 
 		gsap.to(".artist-bio__text-line", {
 			backgroundPositionX: "0%",
@@ -40,6 +29,7 @@ const Profile = ({ }: ProfileProps) => {
 				scrub: 1,
 				start: "top 80% reverse",
 				end: `+=${wrapper?.clientHeight}`,
+				markers: true,
 			}
 		})
 	}, [width])

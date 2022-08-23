@@ -16,7 +16,7 @@ function App() {
       <ArtistProvider>
         <div className="App">
           <Header />
-          <main className="w-screen">
+          <main className="w-screen overflow-hidden">
             <Outlet />
           </main>
         </div>

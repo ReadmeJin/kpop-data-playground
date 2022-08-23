@@ -19,10 +19,12 @@
         font-family: "Noto Serif Display", serif;
         scroll-behavior: smooth;
         overflow-x: hidden;
-        height: 100%;
         width: 100%;
+        background: theme(colors.cream);
     }
-
+    body.dark {
+        background: theme(colors.black);
+    }
     .oval-decoration::before {
         content: '';
         position: absolute;
@@ -47,21 +49,17 @@
         height: auto;
         border-width: 2px;
     }
-    
-    @media(prefers-color-scheme: dark) {
-        .clip-text-reveal {
-            background: linear-gradient(to right, theme(colors.cream) 50%, theme(colors.gray.800) 50%);
-            background-size: 200% 100%;
-            background-position-x: 100%;
-            @apply text-transparent bg-clip-text;
-        }
-    }
-
-    .dark .clip-text-reveal {
-        background: linear-gradient(to right, theme(colors.cream) 50%, theme(colors.gray.800) 50%) default;
-        background-size: 200% 100%;
+    .clip-text-reveal {
+        background: linear-gradient(to right, theme(colors.black) 50%, theme(colors.gray.800) 50%);
+        background-size: 200% 100% !important;
         background-position-x: 100%;
-        @apply text-transparent bg-clip-text;
+        @apply text-transparent bg-clip-text !important;
+    }
+    .dark .clip-text-reveal {
+        background: linear-gradient(to right, theme(colors.cream) 50%, theme(colors.gray.800) 50%);
+        background-size: 200% 100% !important;
+        background-position-x: 100%;
+        @apply text-transparent bg-clip-text !important;
     }
     .dark .fill-cream{
         fill: theme(colors.black);
