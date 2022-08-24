@@ -1,6 +1,5 @@
 import React from 'react'
 import { BsChevronDown } from 'react-icons/bs'
-import { artistsData } from '../../api/getArtistData'
 import ButtonGroup from '../ButtonGroup'
 import GraphControlsLayout, { numberWithCommas } from '../GraphControlsLayout'
 import LineGraph from '../LineGraph'
@@ -40,11 +39,11 @@ export default function YoutubeGraph({ }: Props) {
                         </div>
                         <div className='grid text-left space-y-2 changing-border px-4 py-3 rounded-md'>
                             <label className='text-md tracking-wider'>Total</label>
-                            <span className='text-xl tracking-wide'>{numberWithCommas(artistsData.blackpink.total_youtube_subscribers)}</span>
+                            <span className='text-xl tracking-wide'>{numberWithCommas(7500000)}</span>
                         </div>
                         <div className='grid text-left space-y-2 changing-border px-4 py-3 rounded-md'>
                             <label className='text-md tracking-wider'>New today</label>
-                            <span className='text-xl tracking-wide'>{numberWithCommas(artistsData.blackpink.total_youtube_subscribers)}</span>
+                            <span className='text-xl tracking-wide'>{numberWithCommas(7500000)}</span>
                         </div>
                     </div>
                 </>

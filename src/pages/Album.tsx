@@ -1,10 +1,14 @@
-import { artistsData } from "../api/getArtistData";
 import AlbumItem from "../components/AlbumItem";
 import AlbumSalesGraph from "../components/AlbumSalesGraph";
 import AnimatedTextReveal from "../components/AnimatedTextReveal";
 import Counter from "../components/Counter";
+import ArtistDataInterface from "../interfaces/ArtistDataInterface";
 
-export default function Album() {
+type AlbumProps = {
+    artist: ArtistDataInterface
+}
+
+export default function Album({ artist }: AlbumProps) {
     return (
         <section id="album-section" className="py-[10vh] md:py-[40vh]">
             <div className='album__container text-center mb-24 md:mb-[10vh]'>
@@ -21,17 +25,17 @@ export default function Album() {
                 <Counter
                     className='album__count text-[clamp(22px,12vw,300px)] text-center'
                     from={100000}
-                    to={artistsData.blackpink.total_album_sales}
+                    to={artist.total_album_sales}
                     duration={2}
                 />
             </div>
             <div className="album-list__container">
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-16 xl:gap-20 justify-center min-w-[300px]">
-                    {artistsData.blackpink.album_list.map((album, albumIndex) => {
+                    {artist.album_list.map((album, albumIndex) => {
                         return (
                             <AlbumItem
                                 key={`album-item-${albumIndex}`}
-                                folder={artistsData.blackpink.assets_folder_name}
+                                folder={artist.assets_folder_name}
                                 title={album.album_title}
                                 thumbnail={album.album_thumbnail}
                                 info={album.album_info}

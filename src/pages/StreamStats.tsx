@@ -1,10 +1,13 @@
-import { artistsData } from '../api/getArtistData';
 import AnimatedTextReveal from '../components/AnimatedTextReveal';
 import Counter from '../components/Counter';
 import SpotifyGraph from '../components/SpotifyGraph';
 import VideoStats from '../components/VideoStats';
+import ArtistDataInterface from '../interfaces/ArtistDataInterface';
 
-export default function StreamStats() {
+type StreamStatsProps = {
+    artist: ArtistDataInterface
+}
+export default function StreamStats({ artist }: StreamStatsProps) {
     return (
         <section id="spotify-counts-section" className="pt-52 md:pt-[40vh]">
             <div className='spotify-subs__container text-center mb-24 md:mb-[10vh]'>
@@ -21,7 +24,7 @@ export default function StreamStats() {
                 <Counter
                     className='spotify-subs__count text-[clamp(22px,12vw,300px)] text-center'
                     from={100000}
-                    to={artistsData.blackpink.total_spotify_followers}
+                    to={artist.total_spotify_followers}
                     duration={2}
                 />
             </div>
@@ -36,12 +39,12 @@ export default function StreamStats() {
                     </AnimatedTextReveal>
                 </h2>
                 <ul className='spotify-videos__list relative flex flex-wrap justify-around xl:justify-between w-full h-full gap-5 md:gap-10'>
-                    {artistsData.blackpink.most_streamed_songs.map((song, songIndex) => {
+                    {artist.most_streamed_songs.map((song, songIndex) => {
                         return (
                             <li key={`spotify-song-${songIndex}`} className='spotify-songs__list-item shrink-0 w-full md:w-1/3 xl:w-1/4 2xl:w-1/5'>
                                 <VideoStats
                                     index={`song-${songIndex}`}
-                                    folder={artistsData.blackpink.assets_folder_name}
+                                    folder={artist.assets_folder_name}
                                     total_views={song.song_total_views}
                                     thumbnail={song.song_thumbnail}
                                     url={song.song_url}

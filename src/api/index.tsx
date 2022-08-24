@@ -1,3 +1,5 @@
+import ArtistDataInterface from "../interfaces/ArtistDataInterface";
+
 export const fetchSpotifyAccessToken = async () => {
   const tokenBuffer = btoa(process.env.REACT_APP_SPOTIFY_CLIENT_ID + ':' + process.env.REACT_APP_SPOTIFY_SECRET_KEY);
   const urlencoded = new URLSearchParams();
@@ -11,4 +13,15 @@ export const fetchSpotifyAccessToken = async () => {
     body: urlencoded
   })
   return await response.json();
+}
+
+export const fetchArtistDataFromJSON = async (): Promise<Record<string, ArtistDataInterface>> => {
+  const res = await fetch(`${process.env.PUBLIC_URL}/getArtistData.json`, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+  });
+  const pageList = await res.json();
+  return pageList
 }

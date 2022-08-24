@@ -1,24 +1,28 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { artistsData } from '../api/getArtistData'
 import Counter from '../components/Counter'
 import MemberItem from '../components/MemberItem';
-import 'swiper/css';
-import "swiper/css/free-mode";
 import { AiOutlineInstagram } from 'react-icons/ai';
 import AnimatedTextReveal from '../components/AnimatedTextReveal';
 import InstagramGraph from '../components/InstagramGraph';
 import SocialMediaCard from '../components/SocialMediaCard';
+import ArtistDataInterface from '../interfaces/ArtistDataInterface';
+import 'swiper/css';
+import "swiper/css/free-mode";
 
-export default function SocialMedia() {
+type SocialMediaProps = {
+    artist: ArtistDataInterface
+}
+
+export default function SocialMedia({ artist }: SocialMediaProps) {
 
     return (
         <section id="social-media-section" className="py-[10vh] md:py-[40vh]">
             <div className='mb-3 sm:mb-10 xl:mb-20 text-left'>
-                <h3 className='social-media-hashtag__count font-heading-2'>Instagram: <strong className='font-bold'><a href="#" target="_blank" rel="noopener noreferrer">{artistsData.blackpink.instagram.hashtag}</a></strong></h3>
+                <h3 className='social-media-hashtag__count font-heading-2'>Instagram: <strong className='font-bold'><a href="#" target="_blank" rel="noopener noreferrer">{artist.instagram.hashtag}</a></strong></h3>
                 <Counter
                     className='social-media-followers__count text-[clamp(22px,12vw,200px)] leading-none'
                     from={100000}
-                    to={artistsData.blackpink.total_spotify_followers}
+                    to={artist.total_spotify_followers}
                     duration={2}
                 />
             </div>
@@ -29,14 +33,14 @@ export default function SocialMedia() {
                     slidesPerView="auto"
                     loop={true}
                 >
-                    {artistsData.blackpink.instagram.members_instagram.map((member, memberIndex) => {
+                    {artist.instagram.members_instagram.map((member, memberIndex) => {
                         return (
                             <SwiperSlide
                                 key={`members-${memberIndex}`}
                                 className='shrink-0 h-full max-w-[150px] md:max-w-[200px] xl:max-w-[300px] mr-5 md:mr-8 xl:mr-24 select-none'
                             >
                                 <MemberItem
-                                    folder={artistsData.blackpink.assets_folder_name}
+                                    folder={artist.assets_folder_name}
                                     thumbnail={member.account_thumbnail}
                                     hashtag={member.hashtag}
                                     total_followers={member.total_followers}
@@ -64,7 +68,7 @@ export default function SocialMedia() {
             </div>
             <div className='social-media-cards__container'>
                 <ul className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 xl:gap-20'>
-                    {artistsData.blackpink.social_media_info.map((info, infoIndex) => {
+                    {artist.social_media_info.map((info, infoIndex) => {
                         return (
                             <SocialMediaCard key={`card-${infoIndex}`} index={infoIndex} {...info} />
                         )

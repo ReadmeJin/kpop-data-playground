@@ -13,7 +13,7 @@ export default function Home() {
         { type: "paragraph", text: "Where you can find all data about your favourite KPOP groups & artists" }
     ];
     const container: Variants = {
-        hidden:{
+        hidden: {
             opacity: 0,
             y: 100,
         },
@@ -32,7 +32,7 @@ export default function Home() {
 
 
     return (
-        <div className="px-8 py-16 flex h-[calc(100vh-155px)]">
+        <div className="px-8 py-16 flex h-screen">
             <section className="flex flex-col place-content-center">
                 <GroupCover
                     src={BTSCover}
@@ -43,7 +43,7 @@ export default function Home() {
                 </GroupCover>
             </section>
             <section className="flex-1 flex flex-col place-content-center">
-                <motion.div 
+                <motion.div
                     className="p-4 relative"
                     initial="hidden"
                     animate="visible"
@@ -70,16 +70,16 @@ export default function Home() {
 }
 
 interface GroupCoverProps {
-    src: string, 
-    alt: string, 
+    src: string,
+    alt: string,
     className?: string,
     side: 'left' | 'right',
     children?: React.ReactNode
 }
 
-const GroupCover = ({src, alt, className, side, children}: GroupCoverProps) => {
+const GroupCover = ({ src, alt, className, side, children }: GroupCoverProps) => {
     const container: Variants = {
-        hidden:{
+        hidden: {
             opacity: 0,
             x: side === "right" ? 50 : -50,
         },
@@ -92,9 +92,9 @@ const GroupCover = ({src, alt, className, side, children}: GroupCoverProps) => {
         }
     };
     return (
-        <motion.figure 
+        <motion.figure
             className={classnames(
-                `uppercase text-2xl flex items-center relative`, 
+                `uppercase text-2xl flex items-center relative`,
                 className,
                 {
                     'flex-row-reverse ml-16': side === "left",
@@ -105,18 +105,18 @@ const GroupCover = ({src, alt, className, side, children}: GroupCoverProps) => {
             animate="visible"
             variants={container}
         >
-            <motion.img 
+            <motion.img
                 src={src}
                 alt={alt}
                 className="rounded-md max-w-[300px] aspect-video object-cover"
-                whileHover={{scale: 1.05}}
+                whileHover={{ scale: 1.05 }}
             />
-            <figcaption 
+            <figcaption
                 className={classnames(
                     'absolute',
                     {
-                    'writing-rl orientation-mixed -right-[75px]': side === "right",
-                    'writing-lr orientation-mixed rotate-180 -left-[75px]': side === "left",
+                        'writing-rl orientation-mixed -right-[75px]': side === "right",
+                        'writing-lr orientation-mixed rotate-180 -left-[75px]': side === "left",
                     }
                 )}
             >
