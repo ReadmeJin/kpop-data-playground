@@ -10,7 +10,7 @@ type AlbumProps = {
 
 export default function Album({ artist }: AlbumProps) {
     return (
-        <section id="album-section" className="py-[10vh] md:py-[40vh]">
+        <section id="album-section" className="section-padding">
             <div className='album__container text-center mb-24 md:mb-[10vh]'>
                 <h2>
                     <AnimatedTextReveal

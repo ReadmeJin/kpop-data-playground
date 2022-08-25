@@ -36,7 +36,7 @@ const Profile = ({ artist }: ProfileProps) => {
 	}, [width])
 
 	return (
-		<div className="artist-profile relative w-full flex min-h-screen overflow-hidden">
+		<section className="artist-profile relative w-full flex min-h-screen overflow-hidden section-padding">
 			<div className='artist-container items-center px-4 w-full md:max-w-[70vw] mx-auto'>
 				<div className='artist-info'>
 					<div className='artist-title__container relative isolate'>
@@ -44,7 +44,7 @@ const Profile = ({ artist }: ProfileProps) => {
 							<AnimatedTextReveal
 								target='.artist-info__title'
 								charClass='artist-info__title-char'
-								className='artist-info__title inline-block my-[20vh] md:my-[30vh] text-[clamp(60px,12vw,12vw)] leading-[clamp(60px,12vw,12vw)] whitespace-pre-wrap bg-blend-difference'
+								className='artist-info__title font-dm-serif inline-block my-[20vh] md:my-[30vh] text-[clamp(60px,10vw,10vw)] leading-[clamp(60px,10vw,10vw)] whitespace-pre-wrap bg-blend-difference'
 							>
 								{artist.title}
 							</AnimatedTextReveal>
@@ -57,11 +57,11 @@ const Profile = ({ artist }: ProfileProps) => {
 					</div>
 
 					<div className='artist-bio__wrapper pt-[30vh] md:pt-[40vh] xl:pt-[40vh]'>
-						<p className='artist-bio__text-list whitespace-pre-line font-semibold tracking-wide text-[clamp(28px,4vw,8vw)]'>{artist.bio}</p>
+						<p className='artist-bio__text-list whitespace-pre-line font-light tracking-wide text-[clamp(28px,4vw,8vw)]'>{artist.bio}</p>
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	)
 }
 

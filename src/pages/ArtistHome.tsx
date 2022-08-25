@@ -17,7 +17,7 @@ export default function ArtistHome() {
       <AnimatePresence exitBeforeEnter>
         <motion.div
           key="content-section"
-          className="container mx-auto px-8 lg:px-12"
+          className="container mx-auto px-8 lg:px-12 pt-[20vh] md:pt-[17vh] lg:pt-[12vh] xl:pt-[10vh]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >

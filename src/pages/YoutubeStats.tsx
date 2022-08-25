@@ -10,7 +10,7 @@ interface YoutubeStatsProps {
 export const YoutubeStats = ({ artist }: YoutubeStatsProps) => {
 
     return (
-        <div id="youtube-counts-section" className="pt-52 md:pt-[40vh]">
+        <section id="youtube-counts-section" className="section-padding">
             <div className='youtube-subs__container text-center mb-24 md:mb-[10vh]'>
                 <h2>
                     <AnimatedTextReveal
@@ -71,7 +71,7 @@ export const YoutubeStats = ({ artist }: YoutubeStatsProps) => {
                     <YoutubeGraph />
                 </div>
             </div>
-        </div >
+        </section >
     )
 }
 

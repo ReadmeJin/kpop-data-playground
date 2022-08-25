@@ -9,7 +9,7 @@ type StreamStatsProps = {
 }
 export default function StreamStats({ artist }: StreamStatsProps) {
     return (
-        <section id="spotify-counts-section" className="pt-52 md:pt-[40vh]">
+        <section id="spotify-counts-section" className="section-padding">
             <div className='spotify-subs__container text-center mb-24 md:mb-[10vh]'>
                 <h2>
                     <AnimatedTextReveal

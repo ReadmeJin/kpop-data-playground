@@ -16,7 +16,7 @@ type SocialMediaProps = {
 export default function SocialMedia({ artist }: SocialMediaProps) {
 
     return (
-        <section id="social-media-section" className="py-[10vh] md:py-[40vh]">
+        <section id="social-media-section" className="section-padding">
             <div className='mb-3 sm:mb-10 xl:mb-20 text-left'>
                 <h3 className='social-media-hashtag__count font-heading-2'>Instagram: <strong className='font-bold'><a href="#" target="_blank" rel="noopener noreferrer">{artist.instagram.hashtag}</a></strong></h3>
                 <Counter

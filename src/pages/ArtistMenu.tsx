@@ -44,7 +44,7 @@ export default function ArtistMenu({ }: Props) {
                 <ul className='menu__block flex flex-col items-stretch h-full'>
                     {menuItems.map(({ label, slug }, menuIndex) => {
                         return (
-                            <li key={`menu-item-${menuIndex}`} className='menu__column h-1/4 w-auto text-center relative flex items-center justify-center'>
+                            <li key={`menu-item-${menuIndex}`} className='menu__column h-1/4 w-auto text-center relative flex items-center justify-center font-dm-serif'>
                                 <MenuLink menuLabel={label} slug={slug} />
                                 <Marquee
                                     style={{ position: 'absolute' }}

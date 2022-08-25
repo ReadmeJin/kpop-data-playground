@@ -16,11 +16,15 @@
         background: theme(colors.cream);
     }
     html, body {
-        font-family: "Noto Serif Display", serif;
+        font-family: 'Hind', sans-serif;
+        line-height: 1.2;
         scroll-behavior: smooth;
         overflow-x: hidden;
         width: 100%;
         background: theme(colors.cream);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-backface-visibility: hidden;
     }
     body.dark {
         background: theme(colors.black);
@@ -98,6 +102,9 @@
     .bg-instagram {
         @apply fill-black dark:fill-cream opacity-10 -rotate-[38deg] aspect-square absolute -right-[150px] -top-[150px] w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] sm:-right-[200px] sm:-top-[200px] md:w-[500px] md:h-[500px] md:-right-[250px] md:-top-[250px] lg:w-[700px] lg:h-[700px] lg:-right-[350px] lg:-top-[350px] xl:w-[1000px] xl:h-[1000px] xl:-right-[200px] xl:-top-[500px] z-[1];
     }
+    .section-padding {
+        @apply pb-52 md:pb-[40vh];
+    }
 }
 
 @layer components {
@@ -118,7 +125,7 @@
         perspective: 100vw;
     }
     .font-heading-2{
-        @apply text-[clamp(24px,4vw,60px)] font-light mb-3;
+        @apply text-[clamp(24px,4vw,60px)] font-dm-serif mb-3;
     }
     .btn-radio {
         @apply select-none cursor-pointer inline-flex items-center justify-center aspect-square rounded-full bg-black dark:bg-cream text-cream dark:text-black p-4 capitalize font-semibold h-full text-xl md:text-sm;
@@ -128,5 +135,11 @@
     }
     .grid-columns-auto-fit{
         grid-template-columns: repeat(auto-fit, minmax(0,1fr));
+    }
+    .clip-inset-left{
+        clip-path: inset(0% 100% 0% 0%);
+    }
+    .clip-inset-right{
+        clip-path: inset(0% 0% 0% 100%);
     }
 }

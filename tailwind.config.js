@@ -13,6 +13,9 @@ module.exports = {
         'cream-70': 'rgb(var(--color-cream) / 0.7)',
         'black': 'rgb(var(--color-black) / 1)',
         'black-70': 'rgb(var(--color-black) / 0.7)',
+      },
+      fontFamily: {
+        'dm-serif': ['DM Serif Display', 'serif']
       }
     },
     fluidType: {
@@ -45,7 +48,7 @@ module.exports = {
     fill: ({ theme }) => ({
       cream: theme('colors.cream'),
       black: theme('colors.black'),
-    })
+    }),
   },
   plugins: [FluidType],
 }
