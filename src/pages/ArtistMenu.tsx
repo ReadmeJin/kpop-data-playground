@@ -22,22 +22,19 @@ type Props = {}
 export default function ArtistMenu({ }: Props) {
 
     useEffect(() => {
-        const splitter = new SplitType(".menu__artist", {
-            types: 'words,chars',
-            charClass: "menu__artist--char",
-            wordClass: "mr-2 lg:mr-5 overflow-hidden"
+        gsap.fromTo('.menu__artist--line', {
+            yPercent: 200,
+            skewY: 10,
+        }, {
+            yPercent: 0,
+            skewY: 0,
+            ease: "power3.inOut",
+            duration: 0.8,
+            stagger: 0.2
         })
-        gsap.from(splitter.chars, {
-            opacity: 0,
-            yPercent: 120,
-            ease: "Power3.InOut",
-            duration: 0.4,
-            stagger: 0.025,
-        })
-        gsap.fromTo(".menu__artist--char", { backgroundPositionX: "100%" }, { backgroundPositionX: "0%", duration: .05, delay: 0.05, stagger: 0.04 })
     }, [])
 
-    const speed = useBreakpointValue({ base: 50, md: 100 }, { fallback: 'md' })
+    const speed = useBreakpointValue({ base: 50, md: 20 }, { fallback: 'md' })
     return (
         <div className='menu w-screen h-screen overflow-hidden'>
             <section className='menu__container w-full h-full mx-auto py-[20vh] lg:py-[10vh]'>
@@ -48,7 +45,7 @@ export default function ArtistMenu({ }: Props) {
                                 <MenuLink menuLabel={label} slug={slug} />
                                 <Marquee
                                     style={{ position: 'absolute' }}
-                                    className='left-0 top-0 h-full text-[90px] sm:text-[125px] xl:text-[220px] opacity-0 overflow-hidden select-none peer-hover:opacity-10 transition-opacity'
+                                    className='left-0 top-0 h-full text-[90px] sm:text-[125px] xl:text-[220px] opacity-5 md:opacity-0 overflow-hidden select-none peer-hover:opacity-5 transition-opacity'
                                     gradient={false}
                                     speed={speed}
                                     direction={(menuIndex % 2 === 0) ? "left" : "right"}
