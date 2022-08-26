@@ -1,6 +1,5 @@
 import { motion, Variants } from 'framer-motion';
 import { Fragment, useEffect } from 'react';
-import { useArtist } from '../providers/ArtistProvider';
 import AnimatedTextReveal from '../components/AnimatedTextReveal';
 import Marquee from 'react-fast-marquee';
 import useBreakpointValue from '../hooks/useBreakpointValue';
@@ -8,11 +7,14 @@ import { GiFlowerStar } from 'react-icons/gi';
 import gsap from 'gsap';
 import cn from 'classnames';
 import { Link } from '@tanstack/react-location';
+import { useDimensions } from '../providers/DimensionsProvider';
 
 export default function Home() {
     const speed = useBreakpointValue({ base: 30, md: 20 }, { fallback: 'md' })
     const marqueeBts = document.querySelector('.marquee--bts');
     const marqueeBlackpink = document.querySelector('.marquee--blackpink');
+    const { width, height } = useDimensions();
+
     const container: Variants = {
         hidden: {
             opacity: 0,
@@ -27,6 +29,12 @@ export default function Home() {
             }
         }
     };
+
+    useEffect(() => {
+        let vh = height * 0.01;
+        document.documentElement.style.setProperty("--vh", `${vh}px`);
+    }, [width]);
+
 
     useEffect(() => {
         const tl = gsap.timeline({ delay: 2, repeat: 0, defaults: { ease: "Power3.InOut", duration: 1 } });
@@ -44,12 +52,9 @@ export default function Home() {
 
     }, [marqueeBts, marqueeBlackpink])
 
-    const tl = gsap.timeline();
-
-
 
     return (
-        <div className="home px-8 pb-16 pt-[15vh] h-screen relative">
+        <div className="home px-8 pb-16 pt-[15vh] h-screen-responsive relative">
             <div className='home__wrapper w-full h-full'>
                 <section className="pt-20 container mx-auto">
                     <motion.div

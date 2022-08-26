@@ -1,10 +1,10 @@
-import React from 'react'
 import { Link } from '@tanstack/react-location'
 import { IoIosStar } from 'react-icons/io'
 import { IoSearchOutline } from 'react-icons/io5'
-import { AnimatePresence, motion, Variants } from 'framer-motion'
+import { Variants } from 'framer-motion'
 import { useArtist } from '../../providers/ArtistProvider'
-import AnimatedText from '../AnimatedText'
+import { GiCircle } from 'react-icons/gi'
+import DarkModeSwitcher from '../DarkModeSwitcher'
 
 
 export default function Header() {
@@ -25,55 +25,46 @@ export default function Header() {
       transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 1.2 }
     }
   };
-  
+
   const container: Variants = {
     visible: {
-        transition: {
-            staggerChildren: 0.05,
-            duration: 1
-        }
+      transition: {
+        staggerChildren: 0.05,
+        duration: 1
+      }
     },
     hidden: {
       transition: {
-          staggerChildren: 0.05,
-          duration: 1
+        staggerChildren: 0.05,
+        duration: 1
       }
-  }
-};
+    }
+  };
 
   return (
-    <header className="fixed top-0 left-0 w-screen px-8 py-10 z-[1]">
-      <div className="flex flex-nowrap items-center">
-        <div className="flex-none">
-          <Link to="/" className="relative logo oval-decoration">
-            <span className="text-xl bg-cream dark:bg-black">
-              K <IoIosStar className="inline pb-1"/> STAR
-            </span>
+    <header className="fixed top-0 left-0 w-screen px-4 sm:px-8 py-6 z-20">
+      <div className="flex flex-nowrap items-center justify-between">
+        <div className="flex-none flex items-center">
+          <Link
+            to="artists"
+            className="text-2xl md:text-lg inline-flex items-center font-light space-x-2"
+          >
+            <IoSearchOutline title="Search" />
+            <span className='text-sm md:leading-none md:text-base invisible -translate-x-10 opacity-0 sm:visible sm:translate-x-0 sm:opacity-100 transition-all duration-500'>Search</span>
           </Link>
         </div>
-        <div className="flex-auto flex items-center justify-center h-14">
-          <h2 className="absolute left-[50%] -translate-x-1/2 text-2xl uppercase overflow-hidden h-[inherit] w-full pointer-events-none">
-           {/*  <AnimatePresence>
-              {!!artist && <motion.span
-                key={artist}
-                initial="hidden"
-                animate="visible"
-                exit="hidden"
-                className="block"
-                variants={container}
-                >
-                  <AnimatedText type="heading2" text={artist}/>
-                </motion.span>}
-            </AnimatePresence> */}
+        <div className="relative flex-none flex items-center justify-center h-14 -ml-12">
+          <h2>
+            <Link to="/" className="logo">
+              <span className="text-sm md:text-base bg-cream dark:bg-black font-dm-serif">
+                K <IoIosStar className="inline pb-1" /> STAR
+              </span>
+              <GiCircle className='aspect-square w-[100%] h-[100%] absolute top-0 bottom-0 left-1/2 right-0 -translate-x-1/2 -skew-x-[40deg] origin-center -z-[1]' />
+            </Link>
           </h2>
         </div>
         <div className="flex-none z-10">
-          <Link
-            to="artists"
-            className="text-2xl inline-flex"
-          >
-            <IoSearchOutline title="Search"/>
-          </Link>
+          <DarkModeSwitcher />
         </div>
       </div>
     </header>

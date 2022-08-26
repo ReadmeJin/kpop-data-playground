@@ -24,7 +24,8 @@
         background: theme(colors.cream);
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        -webkit-backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;  
+        overscroll-behavior: none;
     }
     body.dark {
         background: theme(colors.black);
@@ -141,5 +142,9 @@
     }
     .clip-inset-right{
         clip-path: inset(0% 0% 0% 100%);
+    }
+    .h-screen-responsive {
+        height: 100vh; /* Fallback */
+        height: calc(var(--vh, 1vh) * 100);
     }
 }

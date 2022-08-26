@@ -3,6 +3,7 @@ import useMutationObservable from './useMutationObservable';
 
 type ReturnProps = {
     isDarkMode: boolean;
+    switchMode: () => void;
 }
 
 function useDarkMode(): ReturnProps {
@@ -13,15 +14,23 @@ function useDarkMode(): ReturnProps {
     const onClassNameMutation = React.useCallback((mutationList: MutationRecord[]) => {
         if (mutationList[0].attributeName === "class") {
             const targetMutated = mutationList[0].target as HTMLBodyElement;
-            setIsDarkMode(targetMutated.classList.contains('dark'));
+            const hasDarkClass = targetMutated.classList.contains('dark');
+            setIsDarkMode(hasDarkClass);
+            localStorage.setItem('theme', hasDarkClass ? 'dark' : 'light')
         }
 
     }, [isDarkMode])
 
+    const switchMode = () => {
+        bodyElement.classList.toggle('dark');
+        localStorage.setItem('theme', bodyElement.classList.contains('dark') ? 'dark' : 'light');
+    }
+
     useMutationObservable(bodyElement, onClassNameMutation)
 
     return {
-        isDarkMode
+        isDarkMode,
+        switchMode
     }
 }
 
