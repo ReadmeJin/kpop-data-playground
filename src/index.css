@@ -143,8 +143,26 @@
     .clip-inset-right{
         clip-path: inset(0% 0% 0% 100%);
     }
+    .clip-inset-top{
+        clip-path: inset(0% 0% 100% 0%);
+    }
     .h-screen-responsive {
         height: 100vh; /* Fallback */
         height: calc(var(--vh, 1vh) * 100);
+    }
+    .text-fill-transparent {
+        -webkit-text-fill-color: transparent;
+    }
+    .text-stroke-cream {
+        -webkit-text-stroke-color: theme(colors.cream);
+    }
+    .text-stroke-black {
+        -webkit-text-stroke-color: theme(colors.black);
+    }
+    .text-stroke-1 {
+        -webkit-text-stroke-width: 1px;
+    }
+    .text-stroke-2 {
+        -webkit-text-stroke-width: 2px;
     }
 }

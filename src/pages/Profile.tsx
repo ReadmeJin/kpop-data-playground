@@ -12,6 +12,7 @@ interface ProfileProps {
 const Profile = ({ artist }: ProfileProps) => {
 	const { windowSize } = useDebouncedResize();
 	const { width } = windowSize;
+	const tl = gsap.timeline({ delay: 1, onStart: () => { document.body.classList.add('overflow-hidden') } });
 
 	React.useEffect(() => {
 
@@ -33,30 +34,86 @@ const Profile = ({ artist }: ProfileProps) => {
 				end: `+=${wrapper?.clientHeight}`,
 			}
 		})
+
 	}, [width])
 
+	React.useEffect(() => {
+		const titleLines = new SplitType(".artist-info__title-line", {
+			types: "lines",
+			lineClass: "artist-info__title-subline overflow-hidden"
+		})
+		tl.fromTo('.artist-info__title-subline', {
+			yPercent: 100,
+			skewY: 10,
+			opacity: 0,
+		}, {
+			yPercent: 0,
+			skewY: 0,
+			opacity: 1,
+			ease: "power3.inOut",
+			duration: 0.7,
+			stagger: 0.2
+		})
+		tl.fromTo('.artist-image__wrapper', { clipPath: "inset(0% 0% 100% 0%)" }, {
+			clipPath: "inset(0% 0% 0% 0%)",
+			ease: "expo.inOut",
+			duration: 1.2,
+			onComplete: () => {
+				document.body.classList.remove('overflow-hidden')
+				tl.kill();
+				gsap.to('.artist-info__title', {
+					y: 100,
+					opacity: 0,
+					ease: "linear",
+					scrollTrigger: {
+						trigger: '.artist-info__title',
+						scrub: true,
+						start: "bottom center",
+						end: "bottom 20%",
+						toggleActions: "none none reverse pause"
+					}
+				})
+
+				gsap.fromTo('.artist-image__wrapper', { clipPath: "inset(0% 0% 0% 0%)" }, {
+					clipPath: "inset(0% 0% 100% 0%)",
+					opacity: 0,
+					ease: "linear",
+					scrollTrigger: {
+						trigger: '.artist-image__wrapper',
+						scrub: true,
+						start: "top 40%",
+						end: "bottom top"
+					}
+				})
+			}
+		}, "-=.3")
+
+		tl.play();
+
+	}, [])
+
 	return (
-		<section className="artist-profile relative w-full flex min-h-screen overflow-hidden section-padding">
+		<section className="artist-profile relative w-full flex min-h-screen section-padding">
 			<div className='artist-container items-center px-4 w-full md:max-w-[70vw] mx-auto'>
 				<div className='artist-info'>
-					<div className='artist-title__container relative isolate'>
-						<h1>
-							<AnimatedTextReveal
-								target='.artist-info__title'
-								charClass='artist-info__title-char'
-								className='artist-info__title font-dm-serif inline-block my-[20vh] md:my-[30vh] text-[clamp(60px,10vw,10vw)] leading-[clamp(60px,10vw,10vw)] whitespace-pre-wrap bg-blend-difference'
-							>
-								{artist.title}
-							</AnimatedTextReveal>
+					<div className='artist-title__container relative isolate mt-[20vh] md:mt-[30vh]'>
+
+						<h1 className='artist-info__title font-dm-serif absolute -top-[8vh] md:-top-[10vh] left-0 right-0 flex flex-col'>
+							<span className='artist-info__title-line overflow-hidden text-[clamp(70px,11vw,150px)] will-change-transform skew-y-0 translate-y-0 bg-clip-text capitalize text-fill-transparent text-stroke-1 text-stroke-black dark:text-stroke-cream leading-none mb-2'>discover</span>
+							<span className='artist-info__title-line overflow-hidden text-[clamp(50px,11vw,150px)] will-change-transform uppercase z-20 mix-blend-soft-light leading-none'>{artist.title}</span>
 						</h1>
-						<img
-							className='artist-info__group-image aspect-[3/4] object-cover max-w-[clamp(400px,32vw,900px)] absolute -right-[calc(clamp(400px,32vw,900px)/2)] top-[50%] -translate-y-[50%] -z-10'
-							src={require(`../assets/${artist.assets_folder_name}/${artist.main_group_image}`)}
-							alt={artist.title}
-						/>
+						<div className='artist-image__container flex justify-center items-center relative w-full max-w-[250px] md:max-w-md mx-auto'>
+							<div className='artist-image__wrapper overflow-hidden rounded-t-full -z-[1] clip-inset-top'>
+								<img
+									className='artist-info__group-image aspect-[3/4] object-cover'
+									src={require(`../assets/${artist.assets_folder_name}/${artist.main_group_image}`)}
+									alt={artist.title}
+								/>
+							</div>
+						</div>
 					</div>
 
-					<div className='artist-bio__wrapper pt-[30vh] md:pt-[40vh] xl:pt-[40vh]'>
+					<div className='artist-bio__wrapper pt-[20vh] sm:pt-[10vh] md:pt-[20vh] lg:pt-[20vh]'>
 						<p className='artist-bio__text-list whitespace-pre-line font-light tracking-wide text-[clamp(28px,4vw,8vw)]'>{artist.bio}</p>
 					</div>
 				</div>
