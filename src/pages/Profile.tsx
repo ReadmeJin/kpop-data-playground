@@ -102,9 +102,9 @@ const Profile = ({ artist }: ProfileProps) => {
 						<div className='flex justify-center items-center h-auto self-center relative -mb-[20vh]'>
 							<h1 className='artist-info__title font-dm-serif absolute -top-[8vh] md:-top-[10vh] left-0 right-0 flex flex-col'>
 								<span className='artist-info__title-line overflow-hidden text-[clamp(70px,11vw,150px)] will-change-transform skew-y-0 translate-y-0 bg-clip-text capitalize text-fill-transparent text-stroke-1 text-stroke-black dark:text-stroke-cream leading-none mb-2'>discover</span>
-								<span className='artist-info__title-line overflow-hidden text-[clamp(50px,11vw,150px)] will-change-transform uppercase z-20 mix-blend-soft-light leading-none'>{artist.title}</span>
+								<span className='artist-info__title-line overflow-hidden text-[clamp(50px,11vw,150px)] will-change-transform uppercase z-20'>{artist.title}</span>
 							</h1>
-							<div className='artist-image__container flex flex-1 shrink-0 justify-center items-center w-full max-w-[250px] md:max-w-md mx-auto'>
+							<div className='artist-image__container flex flex-1 shrink-0 justify-center items-center w-full h-[333px] sm:h-auto max-w-[250px] md:max-w-md mx-auto'>
 								<div className='artist-image__wrapper overflow-hidden rounded-t-full -z-[1] clip-inset-top'>
 									<img
 										className='artist-info__group-image aspect-[3/4] object-cover'

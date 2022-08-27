@@ -17,7 +17,7 @@ function App() {
         <DimensionsProvider>
           <div className="App">
             <Header />
-            <main className="w-screen overflow-hidden">
+            <main className="main-content w-screen overflow-hidden">
               <Outlet />
             </main>
           </div>

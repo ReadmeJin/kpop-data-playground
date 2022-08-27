@@ -68,7 +68,7 @@ export default function Home() {
                                 <AnimatedTextReveal
                                     target='.home__title'
                                     charClass='home__title-char'
-                                    className='home__title font-dm-serif text-[36px] sm:text-[50px] md:text-[60px] xl:text-[80px] 2xl:text-[6vw]'
+                                    className='home__title font-dm-serif text-[36px] sm:text-[50px] md:text-[60px] xl:text-[80px] xl:leading-[80px] 2xl:text-[5vw] 2xl:leading-[6vw]'
                                 >
                                     Welcome to the KPOP data playground
                                 </AnimatedTextReveal>
