@@ -2,7 +2,6 @@ import React from 'react';
 import gsap from 'gsap';
 import SplitType from 'split-type';
 import useDebouncedResize from '../hooks/useDebouncedResize';
-import AnimatedTextReveal from '../components/AnimatedTextReveal';
 import ArtistDataInterface from '../interfaces/ArtistDataInterface';
 
 interface ProfileProps {

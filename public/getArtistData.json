@@ -151,7 +151,7 @@
         "title": "Girls' Generation",
         "bio": "Girls' Generation (소녀시대) es un grupo femenino formado por SM Entertainment en 2007.[1][2] También se les conoce como SNSD o SoShi (소시), los cuales son abreviaciones para el nombre del grupo en coreano. Girls' Generation está formado por ocho miembros: Taeyeon, Sunny, Tiffany, Hyoyeon, Yuri, Sooyoung, Yoona y Seohyun. El 30 de septiembre de 2014, Jessica abandonó el grupo.",
         "assets_folder_name": "blackpink",
-        "main_group_image": "girls-generation.jpg",
+        "main_group_image": "gg.jpg",
         "total_youtube_subscribers": 2790000,
         "most_watched_videos": [
             {
@@ -159,7 +159,7 @@
                 "video_title": "Girls' Generation 소녀시대 'Gee' MV",
                 "video_date_published": "06/2009",
                 "video_url": "https://www.youtube.com/watch?v=U7mPqycQ0tQ&ab_channel=SMTOWN",
-                "video_thumbnail": "thumbnail-1.jpg"
+                "video_thumbnail": "thumbnail-1.png"
             },
             {
                 "video_total_views": 256723376,
@@ -296,10 +296,10 @@
         ]
     },
     "bts": {
-        "title": "BlackPink",
-        "bio": "Blackpink (Hangul: 블랙핑크), stylized as BLACKPINK or BLΛƆKPIИK, is a South Korean girl group formed by YG Entertainment and the first girl group to debut under the same entertainment company seven years after 2NE1. The group consists of four members: Jennie, Lisa, Jisoo, and Rosé . They officially debuted on August 8, 2016 with the single album Square One . Blackpink fans are called 'Blink'. The fandom name Blink means the fans start with Blackpink and end with Blackpink. On June 16, 2021, it was announced that BLACKPINK: The Movie will air on August 8, as part of their '4+1 PROJECT' to commemorate the group's fifth anniversary.",
+        "title": "BTS",
+        "bio": "BTS (en hangul, 방탄소년단; romanización revisada del coreano, Bangtan Sonyeondan) es un grupo surcoreano formado en Seúl en 2010 y que debutó en 2013 bajo la compañía Big Hit Music. Está compuesto por siete integrantes: Jin, Suga, J-Hope, RM, Jimin, V y Jungkook, quienes coescriben y coproducen la mayor parte de su material discográfico. A pesar de haber sido creado con un estilo principalmente hip hop, ha llegado a incorporar una gran variedad de géneros en su repertorio musical.",
         "assets_folder_name": "blackpink",
-        "main_group_image": "blackpink.jpg",
+        "main_group_image": "bts.jpg",
         "total_youtube_subscribers": 75000000,
         "most_watched_videos": [
             {
@@ -444,10 +444,10 @@
         ]
     },
     "nct-127": {
-        "title": "BlackPink",
-        "bio": "Blackpink (Hangul: 블랙핑크), stylized as BLACKPINK or BLΛƆKPIИK, is a South Korean girl group formed by YG Entertainment and the first girl group to debut under the same entertainment company seven years after 2NE1. The group consists of four members: Jennie, Lisa, Jisoo, and Rosé . They officially debuted on August 8, 2016 with the single album Square One . Blackpink fans are called 'Blink'. The fandom name Blink means the fans start with Blackpink and end with Blackpink. On June 16, 2021, it was announced that BLACKPINK: The Movie will air on August 8, as part of their '4+1 PROJECT' to commemorate the group's fifth anniversary.",
+        "title": "NCT 127",
+        "bio": "NCT 127 (en hangul, 엔시티 127; es la segunda subunidad de la boy band surcoreana NCT, formado por el sello SM Entertainment en 2016.La subunidad basada en Seúl, debutó en julio de 2016 con el lanzamiento de su primer EP, NCT 127. El grupo consistía de siete integrantes: Taeil, Taeyong, Yuta, Jaehyun, Winwin, Mark y Haechan,pero Doyoung, Johnny y Jungwoo fueron agregados en diciembre de 2016 y septiembre de 2018, respectivamente.",
         "assets_folder_name": "blackpink",
-        "main_group_image": "blackpink.jpg",
+        "main_group_image": "nct.jpg",
         "total_youtube_subscribers": 75000000,
         "most_watched_videos": [
             {
