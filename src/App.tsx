@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import { Outlet } from '@tanstack/react-location';
+import Header from './components/Header';
+import ArtistProvider from './providers/ArtistProvider';
+import SpotifyTokenProvider from './providers/SpotifyTokenProvider';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import DimensionsProvider from './providers/DimensionsProvider';
 import './App.css';
 
+gsap.registerPlugin(ScrollTrigger);
+
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <SpotifyTokenProvider>
+      <ArtistProvider>
+        <DimensionsProvider>
+          <div className="App">
+            <Header />
+            <main className="main-content w-screen overflow-hidden">
+              <Outlet />
+            </main>
+          </div>
+        </DimensionsProvider>
+      </ArtistProvider>
+    </SpotifyTokenProvider>
   );
 }
 
