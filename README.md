@@ -1,7 +1,12 @@
-# Kpop Data Playground
-Discover Kpop artists information in a beatiful and nice way.
+<h1 align="center" id="title">Kpop Data Playground</h1>
 
-Personal project to practice different tools and improve my front-end skills. 
+<p align="center"><img src="https://socialify.git.ci/G0m1namm/kpop-data-playground/image?font=Raleway&amp;language=1&amp;logo=https%3A%2F%2Fpreview-kpop-data-playground.vercel.app%2Flogo192.png&amp;name=1&amp;owner=1&amp;stargazers=1&amp;theme=Light" alt="project-image"></p>
+
+<p id="description">Exploration project focused on the use of more advance animations and Typescript basics. Helped me to understand different uses of GSAP and Framer Motion libraries as well as how to handle those animations with responsiveness. As addition to that I practiced more the use of Tailwind CSS and how to handle Light/Dark mode.</p>
+
+<h2>Project Screenshots:</h2>
+
+<img src="https://github.com/user-attachments/assets/6b8a855f-0dfd-4784-a292-f744f6f1df94" alt="project-screenshot" width="800" height="400/">
 
 This website use dummy data.
 
